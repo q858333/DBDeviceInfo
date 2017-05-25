@@ -1,0 +1,662 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F76660651ED6601C00EB4F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660641ED6601C00EB4F4B /* main.m */; };
+		F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660671ED6601C00EB4F4B /* AppDelegate.m */; };
+		F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F766606A1ED6601C00EB4F4B /* ViewController.m */; };
+		F766606E1ED6601C00EB4F4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F766606C1ED6601C00EB4F4B /* Main.storyboard */; };
+		F76660701ED6601C00EB4F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F766606F1ED6601C00EB4F4B /* Assets.xcassets */; };
+		F76660731ED6601C00EB4F4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */; };
+		F766607E1ED6601C00EB4F4B /* DeviceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F766607D1ED6601C00EB4F4B /* DeviceInfoTests.m */; };
+		F76660891ED6601C00EB4F4B /* DeviceInfoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660881ED6601C00EB4F4B /* DeviceInfoUITests.m */; };
+		F76660981ED6603E00EB4F4B /* DBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */; };
+		F76661011ED6701600EB4F4B /* LocalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660E71ED6701600EB4F4B /* LocalConnection.m */; };
+		F76661021ED6701600EB4F4B /* FSMEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660EB1ED6701600EB4F4B /* FSMEngine.m */; };
+		F76661031ED6701600EB4F4B /* FSMStateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660ED1ED6701600EB4F4B /* FSMStateUtil.m */; };
+		F76661041ED6701600EB4F4B /* ReachState.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660EF1ED6701600EB4F4B /* ReachState.m */; };
+		F76661051ED6701600EB4F4B /* ReachStateLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660F11ED6701600EB4F4B /* ReachStateLoading.m */; };
+		F76661061ED6701600EB4F4B /* ReachStateUnloaded.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660F31ED6701600EB4F4B /* ReachStateUnloaded.m */; };
+		F76661071ED6701600EB4F4B /* ReachStateUnReachable.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660F51ED6701600EB4F4B /* ReachStateUnReachable.m */; };
+		F76661081ED6701600EB4F4B /* ReachStateWIFI.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660F71ED6701600EB4F4B /* ReachStateWIFI.m */; };
+		F76661091ED6701600EB4F4B /* ReachStateWWAN.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660F91ED6701600EB4F4B /* ReachStateWWAN.m */; };
+		F766610A1ED6701600EB4F4B /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660FC1ED6701600EB4F4B /* PingFoundation.m */; };
+		F766610B1ED6701600EB4F4B /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660FE1ED6701600EB4F4B /* PingHelper.m */; };
+		F766610C1ED6701600EB4F4B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F76660FF1ED6701600EB4F4B /* README.md */; };
+		F766610F1ED6701B00EB4F4B /* RealReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F766610E1ED6701B00EB4F4B /* RealReachability.m */; };
+		F76661121ED6702100EB4F4B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F76661111ED6702100EB4F4B /* Reachability.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F766607A1ED6601C00EB4F4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F76660581ED6601C00EB4F4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F766605F1ED6601C00EB4F4B;
+			remoteInfo = DeviceInfo;
+		};
+		F76660851ED6601C00EB4F4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F76660581ED6601C00EB4F4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F766605F1ED6601C00EB4F4B;
+			remoteInfo = DeviceInfo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F76660601ED6601C00EB4F4B /* DeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76660641ED6601C00EB4F4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F76660661ED6601C00EB4F4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F76660671ED6601C00EB4F4B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F76660691ED6601C00EB4F4B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F766606A1ED6601C00EB4F4B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F766606D1ED6601C00EB4F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F766606F1ED6601C00EB4F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F76660721ED6601C00EB4F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F76660741ED6601C00EB4F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F76660791ED6601C00EB4F4B /* DeviceInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F766607D1ED6601C00EB4F4B /* DeviceInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoTests.m; sourceTree = "<group>"; };
+		F766607F1ED6601C00EB4F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F76660841ED6601C00EB4F4B /* DeviceInfoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceInfoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76660881ED6601C00EB4F4B /* DeviceInfoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoUITests.m; sourceTree = "<group>"; };
+		F766608A1ED6601C00EB4F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F76660961ED6603E00EB4F4B /* DBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceInfo.h; sourceTree = "<group>"; };
+		F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceInfo.m; sourceTree = "<group>"; };
+		F76660E61ED6701600EB4F4B /* LocalConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalConnection.h; sourceTree = "<group>"; };
+		F76660E71ED6701600EB4F4B /* LocalConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalConnection.m; sourceTree = "<group>"; };
+		F76660E91ED6701600EB4F4B /* FSMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMDefines.h; sourceTree = "<group>"; };
+		F76660EA1ED6701600EB4F4B /* FSMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMEngine.h; sourceTree = "<group>"; };
+		F76660EB1ED6701600EB4F4B /* FSMEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMEngine.m; sourceTree = "<group>"; };
+		F76660EC1ED6701600EB4F4B /* FSMStateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMStateUtil.h; sourceTree = "<group>"; };
+		F76660ED1ED6701600EB4F4B /* FSMStateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMStateUtil.m; sourceTree = "<group>"; };
+		F76660EE1ED6701600EB4F4B /* ReachState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachState.h; sourceTree = "<group>"; };
+		F76660EF1ED6701600EB4F4B /* ReachState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachState.m; sourceTree = "<group>"; };
+		F76660F01ED6701600EB4F4B /* ReachStateLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachStateLoading.h; sourceTree = "<group>"; };
+		F76660F11ED6701600EB4F4B /* ReachStateLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachStateLoading.m; sourceTree = "<group>"; };
+		F76660F21ED6701600EB4F4B /* ReachStateUnloaded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachStateUnloaded.h; sourceTree = "<group>"; };
+		F76660F31ED6701600EB4F4B /* ReachStateUnloaded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachStateUnloaded.m; sourceTree = "<group>"; };
+		F76660F41ED6701600EB4F4B /* ReachStateUnReachable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachStateUnReachable.h; sourceTree = "<group>"; };
+		F76660F51ED6701600EB4F4B /* ReachStateUnReachable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachStateUnReachable.m; sourceTree = "<group>"; };
+		F76660F61ED6701600EB4F4B /* ReachStateWIFI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachStateWIFI.h; sourceTree = "<group>"; };
+		F76660F71ED6701600EB4F4B /* ReachStateWIFI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachStateWIFI.m; sourceTree = "<group>"; };
+		F76660F81ED6701600EB4F4B /* ReachStateWWAN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachStateWWAN.h; sourceTree = "<group>"; };
+		F76660F91ED6701600EB4F4B /* ReachStateWWAN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachStateWWAN.m; sourceTree = "<group>"; };
+		F76660FB1ED6701600EB4F4B /* PingFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingFoundation.h; sourceTree = "<group>"; };
+		F76660FC1ED6701600EB4F4B /* PingFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingFoundation.m; sourceTree = "<group>"; };
+		F76660FD1ED6701600EB4F4B /* PingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingHelper.h; sourceTree = "<group>"; };
+		F76660FE1ED6701600EB4F4B /* PingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingHelper.m; sourceTree = "<group>"; };
+		F76660FF1ED6701600EB4F4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F766610D1ED6701B00EB4F4B /* RealReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealReachability.h; sourceTree = "<group>"; };
+		F766610E1ED6701B00EB4F4B /* RealReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealReachability.m; sourceTree = "<group>"; };
+		F76661101ED6702100EB4F4B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		F76661111ED6702100EB4F4B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F766605D1ED6601C00EB4F4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76660761ED6601C00EB4F4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76660811ED6601C00EB4F4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F76660571ED6601C00EB4F4B = {
+			isa = PBXGroup;
+			children = (
+				F76660621ED6601C00EB4F4B /* DeviceInfo */,
+				F766607C1ED6601C00EB4F4B /* DeviceInfoTests */,
+				F76660871ED6601C00EB4F4B /* DeviceInfoUITests */,
+				F76660611ED6601C00EB4F4B /* Products */,
+				F76660A91ED6650B00EB4F4B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F76660611ED6601C00EB4F4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F76660601ED6601C00EB4F4B /* DeviceInfo.app */,
+				F76660791ED6601C00EB4F4B /* DeviceInfoTests.xctest */,
+				F76660841ED6601C00EB4F4B /* DeviceInfoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F76660621ED6601C00EB4F4B /* DeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F76661101ED6702100EB4F4B /* Reachability.h */,
+				F76661111ED6702100EB4F4B /* Reachability.m */,
+				F766610D1ED6701B00EB4F4B /* RealReachability.h */,
+				F766610E1ED6701B00EB4F4B /* RealReachability.m */,
+				F76660E81ED6701600EB4F4B /* Connection */,
+				F76660FA1ED6701600EB4F4B /* FSM */,
+				F76661001ED6701600EB4F4B /* Ping */,
+				F76660661ED6601C00EB4F4B /* AppDelegate.h */,
+				F76660671ED6601C00EB4F4B /* AppDelegate.m */,
+				F76660691ED6601C00EB4F4B /* ViewController.h */,
+				F766606A1ED6601C00EB4F4B /* ViewController.m */,
+				F76660961ED6603E00EB4F4B /* DBDeviceInfo.h */,
+				F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */,
+				F766606C1ED6601C00EB4F4B /* Main.storyboard */,
+				F766606F1ED6601C00EB4F4B /* Assets.xcassets */,
+				F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */,
+				F76660741ED6601C00EB4F4B /* Info.plist */,
+				F76660631ED6601C00EB4F4B /* Supporting Files */,
+			);
+			path = DeviceInfo;
+			sourceTree = "<group>";
+		};
+		F76660631ED6601C00EB4F4B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F76660641ED6601C00EB4F4B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F766607C1ED6601C00EB4F4B /* DeviceInfoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F766607D1ED6601C00EB4F4B /* DeviceInfoTests.m */,
+				F766607F1ED6601C00EB4F4B /* Info.plist */,
+			);
+			path = DeviceInfoTests;
+			sourceTree = "<group>";
+		};
+		F76660871ED6601C00EB4F4B /* DeviceInfoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F76660881ED6601C00EB4F4B /* DeviceInfoUITests.m */,
+				F766608A1ED6601C00EB4F4B /* Info.plist */,
+			);
+			path = DeviceInfoUITests;
+			sourceTree = "<group>";
+		};
+		F76660A91ED6650B00EB4F4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F76660E81ED6701600EB4F4B /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				F76660E61ED6701600EB4F4B /* LocalConnection.h */,
+				F76660E71ED6701600EB4F4B /* LocalConnection.m */,
+			);
+			name = Connection;
+			path = ../../../demo/Scan/Scan/QRCode/Connection;
+			sourceTree = "<group>";
+		};
+		F76660FA1ED6701600EB4F4B /* FSM */ = {
+			isa = PBXGroup;
+			children = (
+				F76660E91ED6701600EB4F4B /* FSMDefines.h */,
+				F76660EA1ED6701600EB4F4B /* FSMEngine.h */,
+				F76660EB1ED6701600EB4F4B /* FSMEngine.m */,
+				F76660EC1ED6701600EB4F4B /* FSMStateUtil.h */,
+				F76660ED1ED6701600EB4F4B /* FSMStateUtil.m */,
+				F76660EE1ED6701600EB4F4B /* ReachState.h */,
+				F76660EF1ED6701600EB4F4B /* ReachState.m */,
+				F76660F01ED6701600EB4F4B /* ReachStateLoading.h */,
+				F76660F11ED6701600EB4F4B /* ReachStateLoading.m */,
+				F76660F21ED6701600EB4F4B /* ReachStateUnloaded.h */,
+				F76660F31ED6701600EB4F4B /* ReachStateUnloaded.m */,
+				F76660F41ED6701600EB4F4B /* ReachStateUnReachable.h */,
+				F76660F51ED6701600EB4F4B /* ReachStateUnReachable.m */,
+				F76660F61ED6701600EB4F4B /* ReachStateWIFI.h */,
+				F76660F71ED6701600EB4F4B /* ReachStateWIFI.m */,
+				F76660F81ED6701600EB4F4B /* ReachStateWWAN.h */,
+				F76660F91ED6701600EB4F4B /* ReachStateWWAN.m */,
+			);
+			name = FSM;
+			path = ../../../demo/Scan/Scan/QRCode/FSM;
+			sourceTree = "<group>";
+		};
+		F76661001ED6701600EB4F4B /* Ping */ = {
+			isa = PBXGroup;
+			children = (
+				F76660FB1ED6701600EB4F4B /* PingFoundation.h */,
+				F76660FC1ED6701600EB4F4B /* PingFoundation.m */,
+				F76660FD1ED6701600EB4F4B /* PingHelper.h */,
+				F76660FE1ED6701600EB4F4B /* PingHelper.m */,
+				F76660FF1ED6701600EB4F4B /* README.md */,
+			);
+			name = Ping;
+			path = ../../../demo/Scan/Scan/QRCode/Ping;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F766605F1ED6601C00EB4F4B /* DeviceInfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F766608D1ED6601C00EB4F4B /* Build configuration list for PBXNativeTarget "DeviceInfo" */;
+			buildPhases = (
+				F766605C1ED6601C00EB4F4B /* Sources */,
+				F766605D1ED6601C00EB4F4B /* Frameworks */,
+				F766605E1ED6601C00EB4F4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceInfo;
+			productName = DeviceInfo;
+			productReference = F76660601ED6601C00EB4F4B /* DeviceInfo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F76660781ED6601C00EB4F4B /* DeviceInfoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F76660901ED6601C00EB4F4B /* Build configuration list for PBXNativeTarget "DeviceInfoTests" */;
+			buildPhases = (
+				F76660751ED6601C00EB4F4B /* Sources */,
+				F76660761ED6601C00EB4F4B /* Frameworks */,
+				F76660771ED6601C00EB4F4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F766607B1ED6601C00EB4F4B /* PBXTargetDependency */,
+			);
+			name = DeviceInfoTests;
+			productName = DeviceInfoTests;
+			productReference = F76660791ED6601C00EB4F4B /* DeviceInfoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F76660831ED6601C00EB4F4B /* DeviceInfoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F76660931ED6601C00EB4F4B /* Build configuration list for PBXNativeTarget "DeviceInfoUITests" */;
+			buildPhases = (
+				F76660801ED6601C00EB4F4B /* Sources */,
+				F76660811ED6601C00EB4F4B /* Frameworks */,
+				F76660821ED6601C00EB4F4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F76660861ED6601C00EB4F4B /* PBXTargetDependency */,
+			);
+			name = DeviceInfoUITests;
+			productName = DeviceInfoUITests;
+			productReference = F76660841ED6601C00EB4F4B /* DeviceInfoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F76660581ED6601C00EB4F4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = dengbin;
+				TargetAttributes = {
+					F766605F1ED6601C00EB4F4B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MD2XSUQQ78;
+						ProvisioningStyle = Automatic;
+					};
+					F76660781ED6601C00EB4F4B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MD2XSUQQ78;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F766605F1ED6601C00EB4F4B;
+					};
+					F76660831ED6601C00EB4F4B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MD2XSUQQ78;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F766605F1ED6601C00EB4F4B;
+					};
+				};
+			};
+			buildConfigurationList = F766605B1ED6601C00EB4F4B /* Build configuration list for PBXProject "DeviceInfo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F76660571ED6601C00EB4F4B;
+			productRefGroup = F76660611ED6601C00EB4F4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F766605F1ED6601C00EB4F4B /* DeviceInfo */,
+				F76660781ED6601C00EB4F4B /* DeviceInfoTests */,
+				F76660831ED6601C00EB4F4B /* DeviceInfoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F766605E1ED6601C00EB4F4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76660731ED6601C00EB4F4B /* LaunchScreen.storyboard in Resources */,
+				F76660701ED6601C00EB4F4B /* Assets.xcassets in Resources */,
+				F766606E1ED6601C00EB4F4B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76660771ED6601C00EB4F4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76660821ED6601C00EB4F4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F766605C1ED6601C00EB4F4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F766610A1ED6701600EB4F4B /* PingFoundation.m in Sources */,
+				F76661021ED6701600EB4F4B /* FSMEngine.m in Sources */,
+				F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */,
+				F76661031ED6701600EB4F4B /* FSMStateUtil.m in Sources */,
+				F76661051ED6701600EB4F4B /* ReachStateLoading.m in Sources */,
+				F76661041ED6701600EB4F4B /* ReachState.m in Sources */,
+				F766610F1ED6701B00EB4F4B /* RealReachability.m in Sources */,
+				F766610C1ED6701600EB4F4B /* README.md in Sources */,
+				F76661011ED6701600EB4F4B /* LocalConnection.m in Sources */,
+				F76661081ED6701600EB4F4B /* ReachStateWIFI.m in Sources */,
+				F76661091ED6701600EB4F4B /* ReachStateWWAN.m in Sources */,
+				F766610B1ED6701600EB4F4B /* PingHelper.m in Sources */,
+				F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */,
+				F76661061ED6701600EB4F4B /* ReachStateUnloaded.m in Sources */,
+				F76661071ED6701600EB4F4B /* ReachStateUnReachable.m in Sources */,
+				F76660651ED6601C00EB4F4B /* main.m in Sources */,
+				F76661121ED6702100EB4F4B /* Reachability.m in Sources */,
+				F76660981ED6603E00EB4F4B /* DBDeviceInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76660751ED6601C00EB4F4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F766607E1ED6601C00EB4F4B /* DeviceInfoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76660801ED6601C00EB4F4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76660891ED6601C00EB4F4B /* DeviceInfoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F766607B1ED6601C00EB4F4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F766605F1ED6601C00EB4F4B /* DeviceInfo */;
+			targetProxy = F766607A1ED6601C00EB4F4B /* PBXContainerItemProxy */;
+		};
+		F76660861ED6601C00EB4F4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F766605F1ED6601C00EB4F4B /* DeviceInfo */;
+			targetProxy = F76660851ED6601C00EB4F4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F766606C1ED6601C00EB4F4B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F766606D1ED6601C00EB4F4B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76660721ED6601C00EB4F4B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F766608B1ED6601C00EB4F4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F766608C1ED6601C00EB4F4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F766608E1ED6601C00EB4F4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				INFOPLIST_FILE = DeviceInfo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F766608F1ED6601C00EB4F4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				INFOPLIST_FILE = DeviceInfo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F76660911ED6601C00EB4F4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				INFOPLIST_FILE = DeviceInfoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeviceInfo.app/DeviceInfo";
+			};
+			name = Debug;
+		};
+		F76660921ED6601C00EB4F4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				INFOPLIST_FILE = DeviceInfoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeviceInfo.app/DeviceInfo";
+			};
+			name = Release;
+		};
+		F76660941ED6601C00EB4F4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				INFOPLIST_FILE = DeviceInfoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DeviceInfo;
+			};
+			name = Debug;
+		};
+		F76660951ED6601C00EB4F4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				INFOPLIST_FILE = DeviceInfoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DeviceInfo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F766605B1ED6601C00EB4F4B /* Build configuration list for PBXProject "DeviceInfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F766608B1ED6601C00EB4F4B /* Debug */,
+				F766608C1ED6601C00EB4F4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F766608D1ED6601C00EB4F4B /* Build configuration list for PBXNativeTarget "DeviceInfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F766608E1ED6601C00EB4F4B /* Debug */,
+				F766608F1ED6601C00EB4F4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F76660901ED6601C00EB4F4B /* Build configuration list for PBXNativeTarget "DeviceInfoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76660911ED6601C00EB4F4B /* Debug */,
+				F76660921ED6601C00EB4F4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F76660931ED6601C00EB4F4B /* Build configuration list for PBXNativeTarget "DeviceInfoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76660941ED6601C00EB4F4B /* Debug */,
+				F76660951ED6601C00EB4F4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F76660581ED6601C00EB4F4B /* Project object */;
+}
