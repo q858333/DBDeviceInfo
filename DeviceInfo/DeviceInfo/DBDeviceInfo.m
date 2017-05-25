@@ -39,6 +39,7 @@
     });
     return deviveInfo;
 }
+//网络状态
 - (void)networkStateChange
 {
     // 1.检测wifi状态
@@ -88,6 +89,7 @@
 //        }
 //    }];
 }
+#pragma mark - ip
 
 //可获取蜂窝ip
 - (NSString *)getAppIPAddress:(BOOL)preferIPv4
@@ -201,7 +203,9 @@
     }
     
 }
-//电量
+#pragma mark - 电量
+
+//电量 如：0.8
 -(NSString *)batteryLevel
 {
     [UIDevice currentDevice].batteryMonitoringEnabled = true;
@@ -211,7 +215,10 @@
 
     return [NSString stringWithFormat:@"%lf",batteryLevel];
 }
+#pragma mark - wifi名称
+
 //wifiName
+
 - (NSString *)getWifiName
 
 {
@@ -250,6 +257,7 @@
     
 }
 
+#pragma mark - 设备型号
 
 // 获取设备型号然后手动转化为对应名称
 - (NSString *)getDeviceName
@@ -323,6 +331,8 @@
     return deviceString;
 }
 
+
+#pragma mark - 开机时间
 -(NSString *)systemUptime
 {
     NSProcessInfo *info = [NSProcessInfo processInfo];
