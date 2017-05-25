@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1DAE5B161648604A9F30D327D9F094AA04327AD8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1DAE5B161648604A9F30D327D9F094AA04327AD8" : 9223372036854775807,
+    "2E46DEECA68C03E252B6FD3817A68D5D97F44EFE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "15DFE72F-1ACA-4A83-BF7D-153E248D783C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1DAE5B161648604A9F30D327D9F094AA04327AD8" : "DBDeviceInfo\/",
+    "2E46DEECA68C03E252B6FD3817A68D5D97F44EFE" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DeviceInfo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DeviceInfo\/DeviceInfo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/q858333\/DBDeviceInfo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1DAE5B161648604A9F30D327D9F094AA04327AD8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/q858333\/AnimationPath.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E46DEECA68C03E252B6FD3817A68D5D97F44EFE"
+    }
+  ]
+}

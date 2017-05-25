@@ -12,6 +12,8 @@
 #import <net/if.h>
 #import <arpa/inet.h>
 #import<SystemConfiguration/CaptiveNetwork.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "Reachability.h"
 #define IOS_CELLULAR    @"pdp_ip0"
 #define IOS_WIFI        @"en0"
@@ -171,7 +173,34 @@
     }
     return [addresses count] ? addresses : nil;
 }
+#pragma mark - 获取相机权限
+- (void)getMediaState
+{
 
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (status == AVAuthorizationStatusNotDetermined) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if (granted) {
+
+                // 用户第一次同意了访问相机权限
+
+            } else {
+
+                // 用户第一次拒绝了访问相机权限
+            }
+        }];
+    } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+
+
+
+    } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+
+
+    } else if (status == AVAuthorizationStatusRestricted) {
+     //失败
+    }
+    
+}
 //电量
 -(NSString *)batteryLevel
 {
