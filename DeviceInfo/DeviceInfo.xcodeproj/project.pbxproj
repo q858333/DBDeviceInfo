@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F76372231ED818A600B2D831 /* DBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F76372221ED818A600B2D831 /* DBTools.m */; };
 		F76660651ED6601C00EB4F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660641ED6601C00EB4F4B /* main.m */; };
 		F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660671ED6601C00EB4F4B /* AppDelegate.m */; };
 		F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F766606A1ED6601C00EB4F4B /* ViewController.m */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F76372211ED818A600B2D831 /* DBTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTools.h; sourceTree = "<group>"; };
+		F76372221ED818A600B2D831 /* DBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTools.m; sourceTree = "<group>"; };
 		F76660601ED6601C00EB4F4B /* DeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76660641ED6601C00EB4F4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F76660661ED6601C00EB4F4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				F766606A1ED6601C00EB4F4B /* ViewController.m */,
 				F76660961ED6603E00EB4F4B /* DBDeviceInfo.h */,
 				F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */,
+				F76372211ED818A600B2D831 /* DBTools.h */,
+				F76372221ED818A600B2D831 /* DBTools.m */,
 				F766606C1ED6601C00EB4F4B /* Main.storyboard */,
 				F766606F1ED6601C00EB4F4B /* Assets.xcassets */,
 				F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */,
@@ -400,6 +405,7 @@
 				F76661421ED67F2D00EB4F4B /* FSMStateUtil.m in Sources */,
 				F76661461ED67F2D00EB4F4B /* ReachStateUnReachable.m in Sources */,
 				F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */,
+				F76372231ED818A600B2D831 /* DBTools.m in Sources */,
 				F76660651ED6601C00EB4F4B /* main.m in Sources */,
 				F76661431ED67F2D00EB4F4B /* ReachState.m in Sources */,
 				F76661121ED6702100EB4F4B /* Reachability.m in Sources */,
@@ -553,6 +559,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MD2XSUQQ78;
 				INFOPLIST_FILE = DeviceInfo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -565,6 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MD2XSUQQ78;
 				INFOPLIST_FILE = DeviceInfo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

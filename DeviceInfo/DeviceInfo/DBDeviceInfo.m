@@ -194,12 +194,11 @@
     } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
 
 
-
     } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
 
 
     } else if (status == AVAuthorizationStatusRestricted) {
-     //失败
+     //未授权，且用户无法更新，如家长控制情况下
     }
     
 }
@@ -351,8 +350,6 @@
     NSDate *timestepDate = [NSDate dateWithTimeIntervalSince1970:timestep];
 
     //1377044552->2013-08-21 08:22:32
-
-
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 

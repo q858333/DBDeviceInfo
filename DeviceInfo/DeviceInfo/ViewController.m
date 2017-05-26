@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "DBTools.h"
 @interface ViewController ()
 
 @end
@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [DBTools getIDFV];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
