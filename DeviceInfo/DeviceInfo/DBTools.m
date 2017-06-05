@@ -8,11 +8,24 @@
 
 #import "DBTools.h"
 #import <UIKit/UIKit.h>
+
 NSString * const KEY_IDFV = @"com.rs.sdk_safe";
 
 @implementation DBTools
 
++(NSString *)getUniqueId
+{
+    CFUUIDRef uuidRef =CFUUIDCreate(NULL);
 
+    CFStringRef uuidStringRef =CFUUIDCreateString(NULL, uuidRef);
+
+    CFRelease(uuidRef);
+
+    NSString *uniqueId = (__bridge NSString *)uuidStringRef;
+
+    return uniqueId;
+    
+}
 
 + (NSString *)getIDFV
 {

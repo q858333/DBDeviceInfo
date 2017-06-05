@@ -14,5 +14,6 @@
 //开机时间
 -(NSString *)systemUptime;
 
-
+//是否越狱
++ (BOOL)isJailBreak;
 @end

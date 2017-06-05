@@ -21,6 +21,14 @@
 #define IP_ADDR_IPv4    @"ipv4"
 #define IP_ADDR_IPv6    @"ipv6"
 #import <AdSupport/AdSupport.h>
+#define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0])
+const char* jailbreak_tool_pathes[] = {
+    "/Applications/Cydia.app",
+    "/Library/MobileSubstrate/MobileSubstrate.dylib",
+    "/bin/bash",
+    "/usr/sbin/sshd",
+    "/etc/apt"
+};
 
 
 @interface DBDeviceInfo ()
@@ -39,6 +47,43 @@
     });
     return deviveInfo;
 }
+//是否越狱
+- (BOOL)isJailBreak
+{
+    for (int i=0; i<ARRAY_SIZE(jailbreak_tool_pathes); i++) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithUTF8String:jailbreak_tool_pathes[i]]]) {
+            NSLog(@"The device is jail broken!");
+            return YES;
+        }
+    }
+    NSLog(@"The device is NOT jail broken!");
+    return NO;
+}
+//- (BOOL)isJailBreak
+//{
+//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
+//        NSLog(@"The device is jail broken!");
+//        return YES;
+//    }
+//    NSLog(@"The device is NOT jail broken!");
+//    return NO;
+//}
+//char* printEnv(void)
+//{
+//    charchar *env = getenv("DYLD_INSERT_LIBRARIES");
+//    NSLog(@"%s", env);
+//    return env;
+//}
+//
+//- (BOOL)isJailBreak
+//{
+//    if (printEnv()) {
+//        NSLog(@"The device is jail broken!");
+//        return YES;
+//    }
+//    NSLog(@"The device is NOT jail broken!");
+//    return NO;
+//}
 //网络状态
 - (void)networkStateChange
 {

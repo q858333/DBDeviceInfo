@@ -13,4 +13,5 @@
 ///重装app值不会变，只有重置系统会发生变化，adiv存在钥匙串中
 + (NSString *)getIDFV;
 
+
 @end
