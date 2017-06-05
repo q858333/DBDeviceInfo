@@ -13,7 +13,7 @@ NSString * const KEY_IDFV = @"com.rs.sdk_safe";
 
 @implementation DBTools
 
-+(NSString *)getUniqueId
++ (NSString *)getUniqueId
 {
     CFUUIDRef uuidRef =CFUUIDCreate(NULL);
 
@@ -30,6 +30,7 @@ NSString * const KEY_IDFV = @"com.rs.sdk_safe";
 + (NSString *)getIDFV
 {
 
+    NSLog(@"uuid--%@",[self getUniqueId]);
     //测试用 清除keychain中的内容
 
    // [DBTools delete:KEY_IDFV];
@@ -47,7 +48,6 @@ NSString * const KEY_IDFV = @"com.rs.sdk_safe";
         NSString *identifierStr = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 
         NSLog(@"不存在。identifierStr--->C9312013-D127-42E4-86B3-D4096546F77F---->%@",identifierStr);
-
       
 
         [DBTools save:KEY_IDFV data:identifierStr];

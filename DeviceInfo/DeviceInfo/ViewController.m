@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DBTools.h"
+#import "DBPermissions.h"
 @interface ViewController ()
 
 @end
@@ -18,6 +19,11 @@
     [super viewDidLoad];
 
     [DBTools getIDFV];
+
+
+    [[DBPermissions sharePermissions] getAddressBookState:^(BOOL isGranted) {
+        NSLog(@"%d",isGranted);
+    }];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

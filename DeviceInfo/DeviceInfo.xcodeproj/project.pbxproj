@@ -32,6 +32,7 @@
 		F76661491ED67F2D00EB4F4B /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613C1ED67F2D00EB4F4B /* PingFoundation.m */; };
 		F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613E1ED67F2D00EB4F4B /* PingHelper.m */; };
 		F766614B1ED67F2D00EB4F4B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F766613F1ED67F2D00EB4F4B /* README.md */; };
+		F76C721F1EE4FA9700A52CF1 /* DBPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C721E1EE4FA9700A52CF1 /* DBPermissions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		F766613D1ED67F2D00EB4F4B /* PingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingHelper.h; sourceTree = "<group>"; };
 		F766613E1ED67F2D00EB4F4B /* PingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingHelper.m; sourceTree = "<group>"; };
 		F766613F1ED67F2D00EB4F4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F76C721D1EE4FA9700A52CF1 /* DBPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPermissions.h; sourceTree = "<group>"; };
+		F76C721E1EE4FA9700A52CF1 /* DBPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPermissions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */,
 				F76372211ED818A600B2D831 /* DBTools.h */,
 				F76372221ED818A600B2D831 /* DBTools.m */,
+				F76C721D1EE4FA9700A52CF1 /* DBPermissions.h */,
+				F76C721E1EE4FA9700A52CF1 /* DBPermissions.m */,
 				F766606C1ED6601C00EB4F4B /* Main.storyboard */,
 				F766606F1ED6601C00EB4F4B /* Assets.xcassets */,
 				F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */,
@@ -408,6 +413,7 @@
 				F76372231ED818A600B2D831 /* DBTools.m in Sources */,
 				F76660651ED6601C00EB4F4B /* main.m in Sources */,
 				F76661431ED67F2D00EB4F4B /* ReachState.m in Sources */,
+				F76C721F1EE4FA9700A52CF1 /* DBPermissions.m in Sources */,
 				F76661121ED6702100EB4F4B /* Reachability.m in Sources */,
 				F76660981ED6603E00EB4F4B /* DBDeviceInfo.m in Sources */,
 				F76661451ED67F2D00EB4F4B /* ReachStateUnloaded.m in Sources */,
