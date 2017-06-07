@@ -220,6 +220,15 @@ const char* jailbreak_tool_pathes[] = {
 
 
 #pragma mark - 开机时间
+//当前时间
+-(NSString *)currentTime
+{
+    NSDate *now = [NSDate date];
+
+    NSTimeInterval interval = [now timeIntervalSince1970];
+    return [NSString stringWithFormat:@"%lf",interval];
+}
+//运行时间
 -(NSString *)systemUptime
 {
     NSProcessInfo *info = [NSProcessInfo processInfo];
@@ -230,7 +239,14 @@ const char* jailbreak_tool_pathes[] = {
 
     NSTimeInterval interval = [now timeIntervalSince1970];
 
-    return [self getDateStrFromTimeStep:interval - info.systemUptime];
+    return [NSString stringWithFormat:@"%lf",interval - info.systemUptime];//[self getDateStrFromTimeStep:interval - info.systemUptime];
+}
+//开机时间
+-(NSString *)bootTime
+{
+    NSProcessInfo *info = [NSProcessInfo processInfo];
+
+    return [NSString stringWithFormat:@"%lf",info.systemUptime];
 }
 
 -(NSString *)getDateStrFromTimeStep:(long long)timestep{

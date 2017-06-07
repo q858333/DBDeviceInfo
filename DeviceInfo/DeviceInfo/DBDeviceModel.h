@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface DBDeviceModel : NSObject
+@property(nonatomic,strong)NSString *name;
+@property(nonatomic,strong)NSString *age;
+@property(nonatomic,strong)NSString *sex;
+@property(nonatomic,strong)NSString *height;
+
+- (NSDictionary *)properties_jsonDictionary;
 
 @end

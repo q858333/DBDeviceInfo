@@ -22,4 +22,16 @@
 //内核信息
 - (NSString *)getDarwinBuildDescription ;
 
+/**
+ *  systemUptime 开机运行时间
+ *  currentTime  当前时间
+ *  bootTime     开机时间
+ *
+ *  @return string
+ */
+
+-(NSString *)systemUptime;  //
+-(NSString *)currentTime;
+-(NSString *)bootTime;
+
 @end

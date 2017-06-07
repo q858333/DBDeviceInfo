@@ -49,7 +49,7 @@ NSString * const KEY_IDFV = @"com.rongcapital.sdk_safe";
         NSLog(@"不存在。identifierStr--->C9312013-D127-42E4-86B3-D4096546F77F---->%@",identifierStr);
 
 
-        [DBTools save:KEY_IDFV data:identifierStr];
+        [self save:KEY_IDFV data:identifierStr];
 
         return identifierStr;
 

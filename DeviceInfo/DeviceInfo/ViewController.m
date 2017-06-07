@@ -9,57 +9,32 @@
 #import "ViewController.h"
 #import "DBTools.h"
 #import "DBDeviceInfo.h"
-#import <SystemConfiguration/CaptiveNetwork.h>
-#import <CFNetwork/CFNetwork.h>
 
 #import "DBPermissions.h"
+
+//cpu
+#include <sys/types.h>
 #include <sys/sysctl.h>
-#include <net/if.h>
-#include <net/if_dl.h>
+#include <mach/machine.h>
 
+#import "DBInternetInfo.h"
 
-//dns
-#include <arpa/inet.h>
-#include <ifaddrs.h>
-#include <resolv.h>
-#include <dns.h>
-
+#import "DBDeviceModel.h"
 @interface ViewController ()
+
 
 @end
 
 @implementation ViewController
 
-- (id)fetchSSIDInfo {
-    NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
-    NSLog(@"Supported interfaces: %@", ifs);
-    id info = nil;
-    for (NSString *ifnam in ifs) {
-        info = (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
-        NSLog(@"%@ => %@", ifnam, info);  //单个数据info[@"SSID"]; info[@"BSSID"];
-        if (info && [info count]) { break; }
-    }
-    return info;
-}
 
-- (NSString *)standardFormateMAC:(NSString *)MAC {
-    NSArray * subStr = [MAC componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":-"]];
-    NSMutableArray * subStr_M = [[NSMutableArray alloc] initWithCapacity:0];
-    for (NSString * str in subStr) {
-        if (1 == str.length) {
-            NSString * tmpStr = [NSString stringWithFormat:@"0%@", str];
-            [subStr_M addObject:tmpStr];
-        } else {
-            [subStr_M addObject:str];
-        }
-    }
-
-    NSString * formateMAC = [subStr_M componentsJoinedByString:@":"];
-    return [formateMAC uppercaseString];
-}
 
 -(NSString *)proxyName
 {
+
+
+
+    
 
     CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
 
@@ -70,120 +45,78 @@
     
 }
 
-- (NSString *) macaddress
+
+
+
+- (NSString *)getHardParam  // 返回CPU类型
 {
+    NSMutableString *cpu = [[NSMutableString alloc] init];
+    size_t size;
+    cpu_type_t type;
+    cpu_subtype_t subtype;
+    size = sizeof(type);
+    sysctlbyname("hw.cputype", &type, &size, NULL, 0);
 
-    int                 mib[6];
-    size_t              len;
-    char                *buf;
-    unsigned char       *ptr;
-    struct if_msghdr    *ifm;
-    struct sockaddr_dl  *sdl;
+    size = sizeof(subtype);
+    sysctlbyname("hw.cpusubtype", &subtype, &size, NULL, 0);
 
-    mib[0] = CTL_NET;
-    mib[1] = AF_ROUTE;
-    mib[2] = 0;
-    mib[3] = AF_LINK;
-    mib[4] = NET_RT_IFLIST;
-
-    if ((mib[5] = if_nametoindex("en0")) == 0) {
-        printf("Error: if_nametoindex error/n");
-        return NULL;
-    }
-
-    if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
-        printf("Error: sysctl, take 1/n");
-        return NULL;
-    }
-
-    if ((buf = malloc(len)) == NULL) {
-        printf("Could not allocate memory. error!/n");
-        return NULL;
-    }
-
-    if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
-        printf("Error: sysctl, take 2");
-        return NULL;
-    }
-
-    ifm = (struct if_msghdr *)buf;
-    sdl = (struct sockaddr_dl *)(ifm + 1);
-    ptr = (unsigned char *)LLADDR(sdl);
-    NSString *outstring = [NSString stringWithFormat:@"%02x:%02x:%02x:%02x:%02x:%02x", *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
-
-    //    NSString *outstring = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x", *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
-
-    NSLog(@"outString:%@", outstring);
-
-    free(buf);
-
-    return [outstring uppercaseString];
-}
-- (NSString *)getDNSServers
-{
-    // dont forget to link libresolv.lib
-    NSMutableString *addresses = [[NSMutableString alloc]initWithString:@"DNS Addresses \n"];
-
-    res_state res = malloc(sizeof(struct __res_state));
-
-    int result = res_ninit(res);
-
-    if ( result == 0 )
+    // values for cputype and cpusubtype defined in mach/machine.h
+    if (type == CPU_TYPE_X86)
     {
-        for ( int i = 0; i < res->nscount; i++ )
-        {
-            NSString *s = [NSString stringWithUTF8String :  inet_ntoa(res->nsaddr_list[i].sin_addr)];
-            [addresses appendFormat:@"%@\n",s];
-            NSLog(@"%@",s);
-        }
-    }
-    else
-        [addresses appendString:@" res_init result != 0"];
+        [cpu appendString:@"x86 "];
+        // check for subtype ...
 
-    return addresses;
+    } else if (type == CPU_TYPE_ARM)
+    {
+        [cpu appendString:@"ARM"];
+        [cpu appendFormat:@",Type:%d",subtype];
+    }
+    return cpu;
+}
+- (NSString *) getSysInfoByName:(char *)typeSpecifier
+
+{
+
+    size_t size;
+
+    sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
+
+    char *answer = malloc(size);
+
+    sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
+
+    NSString *results = [NSString stringWithCString:answer encoding: NSUTF8StringEncoding];
+
+    free(answer);
+
+    return results;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] systemUptime]);
+    NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] currentTime]);
+
+    DBDeviceModel *model = [[DBDeviceModel alloc]init];
+    model.name=@"123";
+    NSLog(@"%@",[model properties_jsonDictionary]);
+    //    NSDictionary *version = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+//    NSString *productVersion = [version objectForKey:@"ProductVersion"];
+
+    NSLog(@"proxyName-%@",[self proxyName]);
+//    NSDictionary *dic = [[NSProcessInfo processInfo] environment];
+//    NSString *buildConfiguration = dic[@"BUILD_CONFIGURATION"];
 
 
-    NSLog(@"nds-%@,,",[self getDNSServers]);
+   
+    //语言列表
+    NSArray *localeIdentifiers = [NSLocale availableLocaleIdentifiers];
 
-    NSLog(@"mac-%@,,",[self macaddress]);
-    [DBDeviceInfo getIPAddress];
-    [[DBDeviceInfo shareDeviceInfo] getIPAddresses];
-    NSDictionary *proxySettings = (__bridge NSDictionary *)CFNetworkCopySystemProxySettings();
 
-    NSArray *proxies = (__bridge NSArray *)CFNetworkCopyProxiesForURL(
-                                                                      (__bridge CFURLRef)[NSURL URLWithString:@"http://www.google.com"],
-                                                                      (__bridge CFDictionaryRef)proxySettings);
 
-    NSDictionary *settings = [proxies objectAtIndex:0];
-    NSLog(@"host=%@", [settings objectForKey:(NSString *)kCFProxyHostNameKey]);
-    NSLog(@"port=%@", [settings objectForKey:(NSString *)kCFProxyPortNumberKey]);
-    NSLog(@"type=%@", [settings objectForKey:(NSString *)kCFProxyTypeKey]);
-                                                                                                     
-                                                                                                     if ([[settings objectForKey:(NSString *)kCFProxyTypeKey] isEqualToString:@"kCFProxyTypeNone"])
-    {
-        NSLog(@"没代理");
-    }
-                                                                                                     else
-    {
-        NSLog(@"设置了代理");
-    }
 
-    [DBTools getIDFV];
-    NSLog(@"%@",[self fetchSSIDInfo]);
+
     
-//    CFDictionaryRef proxySettings = CFNetworkCopySystemProxySettings();
-//    NSURL *url =[NSURL URLWithString:@"http://www.google.com"];
-// //  NSArray *proxies =  (__bridge NSArray *)CFNetworkCopyProxiesForURL((__bridge CFURLRef )url , proxySettings);
-//    NSArray *proxies = (__bridge NSArray *)((__bridge CFTypeRef )((__bridge NSArray *)CFNetworkCopyProxiesForURL((__bridge CFURLRef)[NSURL URLWithString:@"http://www.google.com"], (CFDictionaryRef)proxySettings))) ;
-//
-//    NSDictionary *settings = [proxies objectAtIndex:0];
-//    NSLog(@"host=%@", [settings objectForKey:(NSString *)kCFProxyHostNameKey]);
-//    NSLog(@"port=%@", [settings objectForKey:(NSString *)kCFProxyPortNumberKey]);
-//    NSLog(@"type=%@", [settings objectForKey:(NSString *)kCFProxyTypeKey]);
-//    NSLog(@"proxyName-%@",[self proxyName]);
+
 
 
 

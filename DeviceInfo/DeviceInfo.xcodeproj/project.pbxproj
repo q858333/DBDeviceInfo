@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F76372231ED818A600B2D831 /* DBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F76372221ED818A600B2D831 /* DBTools.m */; };
+		F7480A1C1EE6835D002A28E0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1B1EE6835D002A28E0 /* CFNetwork.framework */; };
+		F7480A1E1EE68E1A002A28E0 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1D1EE68E1A002A28E0 /* libresolv.9.tbd */; };
+		F7480A201EE68FAF002A28E0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1F1EE68FAF002A28E0 /* CoreTelephony.framework */; };
 		F76660651ED6601C00EB4F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660641ED6601C00EB4F4B /* main.m */; };
 		F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660671ED6601C00EB4F4B /* AppDelegate.m */; };
 		F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F766606A1ED6601C00EB4F4B /* ViewController.m */; };
@@ -16,7 +18,6 @@
 		F76660731ED6601C00EB4F4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */; };
 		F766607E1ED6601C00EB4F4B /* DeviceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F766607D1ED6601C00EB4F4B /* DeviceInfoTests.m */; };
 		F76660891ED6601C00EB4F4B /* DeviceInfoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660881ED6601C00EB4F4B /* DeviceInfoUITests.m */; };
-		F76660981ED6603E00EB4F4B /* DBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */; };
 		F766610F1ED6701B00EB4F4B /* RealReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F766610E1ED6701B00EB4F4B /* RealReachability.m */; };
 		F76661121ED6702100EB4F4B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F76661111ED6702100EB4F4B /* Reachability.m */; };
 		F76661241ED67EC800EB4F4B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76661231ED67EC800EB4F4B /* AVFoundation.framework */; };
@@ -32,7 +33,12 @@
 		F76661491ED67F2D00EB4F4B /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613C1ED67F2D00EB4F4B /* PingFoundation.m */; };
 		F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613E1ED67F2D00EB4F4B /* PingHelper.m */; };
 		F766614B1ED67F2D00EB4F4B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F766613F1ED67F2D00EB4F4B /* README.md */; };
-		F76C721F1EE4FA9700A52CF1 /* DBPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C721E1EE4FA9700A52CF1 /* DBPermissions.m */; };
+		F77583021EE7A4D800B4675A /* DBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582F61EE7A4D800B4675A /* DBTools.m */; };
+		F77583031EE7A4D800B4675A /* DBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */; };
+		F77583041EE7A4D800B4675A /* DBInternetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582FB1EE7A4D800B4675A /* DBInternetInfo.m */; };
+		F77583051EE7A4D800B4675A /* DBKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582FE1EE7A4D800B4675A /* DBKeychain.m */; };
+		F77583061EE7A4D800B4675A /* DBPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = F77583011EE7A4D800B4675A /* DBPermissions.m */; };
+		F775830F1EE7CCE100B4675A /* DBDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F775830E1EE7CCE100B4675A /* DBDeviceModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F76372211ED818A600B2D831 /* DBTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTools.h; sourceTree = "<group>"; };
-		F76372221ED818A600B2D831 /* DBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTools.m; sourceTree = "<group>"; };
+		F7480A1B1EE6835D002A28E0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F7480A1D1EE68E1A002A28E0 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		F7480A1F1EE68FAF002A28E0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F76660601ED6601C00EB4F4B /* DeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76660641ED6601C00EB4F4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F76660661ED6601C00EB4F4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,8 +78,6 @@
 		F76660841ED6601C00EB4F4B /* DeviceInfoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceInfoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76660881ED6601C00EB4F4B /* DeviceInfoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoUITests.m; sourceTree = "<group>"; };
 		F766608A1ED6601C00EB4F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F76660961ED6603E00EB4F4B /* DBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceInfo.h; sourceTree = "<group>"; };
-		F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceInfo.m; sourceTree = "<group>"; };
 		F766610D1ED6701B00EB4F4B /* RealReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealReachability.h; sourceTree = "<group>"; };
 		F766610E1ED6701B00EB4F4B /* RealReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealReachability.m; sourceTree = "<group>"; };
 		F76661101ED6702100EB4F4B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -102,8 +107,18 @@
 		F766613D1ED67F2D00EB4F4B /* PingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingHelper.h; sourceTree = "<group>"; };
 		F766613E1ED67F2D00EB4F4B /* PingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingHelper.m; sourceTree = "<group>"; };
 		F766613F1ED67F2D00EB4F4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F76C721D1EE4FA9700A52CF1 /* DBPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPermissions.h; sourceTree = "<group>"; };
-		F76C721E1EE4FA9700A52CF1 /* DBPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPermissions.m; sourceTree = "<group>"; };
+		F77582F51EE7A4D800B4675A /* DBTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTools.h; sourceTree = "<group>"; };
+		F77582F61EE7A4D800B4675A /* DBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTools.m; sourceTree = "<group>"; };
+		F77582F81EE7A4D800B4675A /* DBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceInfo.h; sourceTree = "<group>"; };
+		F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceInfo.m; sourceTree = "<group>"; };
+		F77582FA1EE7A4D800B4675A /* DBInternetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBInternetInfo.h; sourceTree = "<group>"; };
+		F77582FB1EE7A4D800B4675A /* DBInternetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBInternetInfo.m; sourceTree = "<group>"; };
+		F77582FD1EE7A4D800B4675A /* DBKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBKeychain.h; sourceTree = "<group>"; };
+		F77582FE1EE7A4D800B4675A /* DBKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBKeychain.m; sourceTree = "<group>"; };
+		F77583001EE7A4D800B4675A /* DBPermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPermissions.h; sourceTree = "<group>"; };
+		F77583011EE7A4D800B4675A /* DBPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPermissions.m; sourceTree = "<group>"; };
+		F775830D1EE7CCE100B4675A /* DBDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceModel.h; sourceTree = "<group>"; };
+		F775830E1EE7CCE100B4675A /* DBDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7480A201EE68FAF002A28E0 /* CoreTelephony.framework in Frameworks */,
+				F7480A1E1EE68E1A002A28E0 /* libresolv.9.tbd in Frameworks */,
+				F7480A1C1EE6835D002A28E0 /* CFNetwork.framework in Frameworks */,
 				F76661241ED67EC800EB4F4B /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +174,7 @@
 		F76660621ED6601C00EB4F4B /* DeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
+				F77582F41EE7A4D800B4675A /* Tools */,
 				F76661101ED6702100EB4F4B /* Reachability.h */,
 				F76661111ED6702100EB4F4B /* Reachability.m */,
 				F766610D1ED6701B00EB4F4B /* RealReachability.h */,
@@ -167,17 +186,13 @@
 				F76660671ED6601C00EB4F4B /* AppDelegate.m */,
 				F76660691ED6601C00EB4F4B /* ViewController.h */,
 				F766606A1ED6601C00EB4F4B /* ViewController.m */,
-				F76660961ED6603E00EB4F4B /* DBDeviceInfo.h */,
-				F76660971ED6603E00EB4F4B /* DBDeviceInfo.m */,
-				F76372211ED818A600B2D831 /* DBTools.h */,
-				F76372221ED818A600B2D831 /* DBTools.m */,
-				F76C721D1EE4FA9700A52CF1 /* DBPermissions.h */,
-				F76C721E1EE4FA9700A52CF1 /* DBPermissions.m */,
 				F766606C1ED6601C00EB4F4B /* Main.storyboard */,
 				F766606F1ED6601C00EB4F4B /* Assets.xcassets */,
 				F76660711ED6601C00EB4F4B /* LaunchScreen.storyboard */,
 				F76660741ED6601C00EB4F4B /* Info.plist */,
 				F76660631ED6601C00EB4F4B /* Supporting Files */,
+				F775830D1EE7CCE100B4675A /* DBDeviceModel.h */,
+				F775830E1EE7CCE100B4675A /* DBDeviceModel.m */,
 			);
 			path = DeviceInfo;
 			sourceTree = "<group>";
@@ -211,6 +226,9 @@
 		F76660A91ED6650B00EB4F4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7480A1F1EE68FAF002A28E0 /* CoreTelephony.framework */,
+				F7480A1D1EE68E1A002A28E0 /* libresolv.9.tbd */,
+				F7480A1B1EE6835D002A28E0 /* CFNetwork.framework */,
 				F76661231ED67EC800EB4F4B /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -259,6 +277,48 @@
 				F766613F1ED67F2D00EB4F4B /* README.md */,
 			);
 			path = Ping;
+			sourceTree = "<group>";
+		};
+		F77582F41EE7A4D800B4675A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F77582F51EE7A4D800B4675A /* DBTools.h */,
+				F77582F61EE7A4D800B4675A /* DBTools.m */,
+				F77582F71EE7A4D800B4675A /* Device */,
+				F77582FC1EE7A4D800B4675A /* Keychain */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F77582F71EE7A4D800B4675A /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				F77582FF1EE7A4D800B4675A /* Permissions */,
+				F77582F81EE7A4D800B4675A /* DBDeviceInfo.h */,
+				F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */,
+				F77582FA1EE7A4D800B4675A /* DBInternetInfo.h */,
+				F77582FB1EE7A4D800B4675A /* DBInternetInfo.m */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		F77582FC1EE7A4D800B4675A /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				F77582FD1EE7A4D800B4675A /* DBKeychain.h */,
+				F77582FE1EE7A4D800B4675A /* DBKeychain.m */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		F77582FF1EE7A4D800B4675A /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				F77583001EE7A4D800B4675A /* DBPermissions.h */,
+				F77583011EE7A4D800B4675A /* DBPermissions.m */,
+			);
+			name = Permissions;
+			path = ../Permissions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,8 +388,8 @@
 				TargetAttributes = {
 					F766605F1ED6601C00EB4F4B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MD2XSUQQ78;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 6RJLD8TKER;
+						ProvisioningStyle = Manual;
 					};
 					F76660781ED6601C00EB4F4B = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -400,22 +460,25 @@
 				F76661491ED67F2D00EB4F4B /* PingFoundation.m in Sources */,
 				F76661471ED67F2D00EB4F4B /* ReachStateWIFI.m in Sources */,
 				F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */,
+				F77583021EE7A4D800B4675A /* DBTools.m in Sources */,
 				F76661481ED67F2D00EB4F4B /* ReachStateWWAN.m in Sources */,
 				F766610F1ED6701B00EB4F4B /* RealReachability.m in Sources */,
 				F766614B1ED67F2D00EB4F4B /* README.md in Sources */,
 				F76661401ED67F2D00EB4F4B /* LocalConnection.m in Sources */,
 				F76661441ED67F2D00EB4F4B /* ReachStateLoading.m in Sources */,
 				F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */,
+				F77583061EE7A4D800B4675A /* DBPermissions.m in Sources */,
 				F76661411ED67F2D00EB4F4B /* FSMEngine.m in Sources */,
 				F76661421ED67F2D00EB4F4B /* FSMStateUtil.m in Sources */,
 				F76661461ED67F2D00EB4F4B /* ReachStateUnReachable.m in Sources */,
 				F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */,
-				F76372231ED818A600B2D831 /* DBTools.m in Sources */,
+				F77583041EE7A4D800B4675A /* DBInternetInfo.m in Sources */,
 				F76660651ED6601C00EB4F4B /* main.m in Sources */,
+				F77583051EE7A4D800B4675A /* DBKeychain.m in Sources */,
 				F76661431ED67F2D00EB4F4B /* ReachState.m in Sources */,
-				F76C721F1EE4FA9700A52CF1 /* DBPermissions.m in Sources */,
+				F775830F1EE7CCE100B4675A /* DBDeviceModel.m in Sources */,
 				F76661121ED6702100EB4F4B /* Reachability.m in Sources */,
-				F76660981ED6603E00EB4F4B /* DBDeviceInfo.m in Sources */,
+				F77583031EE7A4D800B4675A /* DBDeviceInfo.m in Sources */,
 				F76661451ED67F2D00EB4F4B /* ReachStateUnloaded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,12 +626,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				DEVELOPMENT_TEAM = 6RJLD8TKER;
 				INFOPLIST_FILE = DeviceInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rs.dv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6179daaa-87ac-4fe8-9f9f-ae544ab3c4c2";
+				PROVISIONING_PROFILE_SPECIFIER = rs_test;
 			};
 			name = Debug;
 		};
@@ -576,11 +641,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MD2XSUQQ78;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DeviceInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DB.DeviceInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rs.dv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
