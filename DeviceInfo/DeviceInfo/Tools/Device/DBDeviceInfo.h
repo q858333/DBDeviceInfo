@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DBDeviceInfo : NSObject
-+ (DBDeviceInfo *)shareDeviceInfo ;
++ (instancetype)shareDeviceInfo ;
 
 //开机时间
 -(NSString *)systemUptime;
@@ -18,9 +18,12 @@
 - (BOOL)isJailBreak;
 - (BOOL)isDevice;
 -(NSDictionary *)getIPAddresses;
-+(NSString *)getIPAddress;
+-(NSString *)getIPAddress;
 //内核信息
 - (NSString *)getDarwinBuildDescription ;
+
+
+- (NSString *)getIMSI;
 
 /**
  *  systemUptime 开机运行时间

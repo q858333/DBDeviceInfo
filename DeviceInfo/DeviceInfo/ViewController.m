@@ -93,7 +93,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] systemUptime]);
+    NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] getIMSI]);
     NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] currentTime]);
 
     DBDeviceModel *model = [[DBDeviceModel alloc]init];

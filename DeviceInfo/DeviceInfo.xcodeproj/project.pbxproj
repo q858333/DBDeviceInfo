@@ -10,6 +10,8 @@
 		F7480A1C1EE6835D002A28E0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1B1EE6835D002A28E0 /* CFNetwork.framework */; };
 		F7480A1E1EE68E1A002A28E0 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1D1EE68E1A002A28E0 /* libresolv.9.tbd */; };
 		F7480A201EE68FAF002A28E0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1F1EE68FAF002A28E0 /* CoreTelephony.framework */; };
+		F74C5AA51EE8DAD5005F36E8 /* DBBatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C5AA41EE8DAD5005F36E8 /* DBBatteryInfo.m */; };
+		F76040C31EEA737D00187D86 /* DBStorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F76040C21EEA737D00187D86 /* DBStorageInfo.m */; };
 		F76660651ED6601C00EB4F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660641ED6601C00EB4F4B /* main.m */; };
 		F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660671ED6601C00EB4F4B /* AppDelegate.m */; };
 		F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F766606A1ED6601C00EB4F4B /* ViewController.m */; };
@@ -62,6 +64,10 @@
 		F7480A1B1EE6835D002A28E0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F7480A1D1EE68E1A002A28E0 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		F7480A1F1EE68FAF002A28E0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F74C5AA31EE8DAD5005F36E8 /* DBBatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBBatteryInfo.h; sourceTree = "<group>"; };
+		F74C5AA41EE8DAD5005F36E8 /* DBBatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBBatteryInfo.m; sourceTree = "<group>"; };
+		F76040C11EEA737D00187D86 /* DBStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStorageInfo.h; sourceTree = "<group>"; };
+		F76040C21EEA737D00187D86 /* DBStorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStorageInfo.m; sourceTree = "<group>"; };
 		F76660601ED6601C00EB4F4B /* DeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76660641ED6601C00EB4F4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F76660661ED6601C00EB4F4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -298,6 +304,10 @@
 				F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */,
 				F77582FA1EE7A4D800B4675A /* DBInternetInfo.h */,
 				F77582FB1EE7A4D800B4675A /* DBInternetInfo.m */,
+				F74C5AA31EE8DAD5005F36E8 /* DBBatteryInfo.h */,
+				F74C5AA41EE8DAD5005F36E8 /* DBBatteryInfo.m */,
+				F76040C11EEA737D00187D86 /* DBStorageInfo.h */,
+				F76040C21EEA737D00187D86 /* DBStorageInfo.m */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -461,6 +471,7 @@
 				F76661471ED67F2D00EB4F4B /* ReachStateWIFI.m in Sources */,
 				F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */,
 				F77583021EE7A4D800B4675A /* DBTools.m in Sources */,
+				F76040C31EEA737D00187D86 /* DBStorageInfo.m in Sources */,
 				F76661481ED67F2D00EB4F4B /* ReachStateWWAN.m in Sources */,
 				F766610F1ED6701B00EB4F4B /* RealReachability.m in Sources */,
 				F766614B1ED67F2D00EB4F4B /* README.md in Sources */,
@@ -480,6 +491,7 @@
 				F76661121ED6702100EB4F4B /* Reachability.m in Sources */,
 				F77583031EE7A4D800B4675A /* DBDeviceInfo.m in Sources */,
 				F76661451ED67F2D00EB4F4B /* ReachStateUnloaded.m in Sources */,
+				F74C5AA51EE8DAD5005F36E8 /* DBBatteryInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

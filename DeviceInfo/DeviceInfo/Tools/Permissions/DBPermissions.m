@@ -37,7 +37,33 @@
     }
 
 }
-
+//#pragma mark - 获取相机权限
+//- (void)getMediaState
+//{
+//
+//    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+//    if (status == AVAuthorizationStatusNotDetermined) {
+//        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+//            if (granted) {
+//
+//                // 用户第一次同意了访问相机权限
+//
+//            } else {
+//
+//                // 用户第一次拒绝了访问相机权限
+//            }
+//        }];
+//    } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+//
+//
+//    } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+//
+//
+//    } else if (status == AVAuthorizationStatusRestricted) {
+//        //未授权，且用户无法更新，如家长控制情况下
+//    }
+//    
+//}
 
 - (BOOL)getAlbumState {
 

@@ -8,11 +8,6 @@
 
 #import "DBDeviceInfo.h"
 
-//dns
-#include <arpa/inet.h>
-#include <ifaddrs.h>
-#include <resolv.h>
-#include <dns.h>
 
 #import "sys/utsname.h"
 #import <net/if.h>
@@ -22,8 +17,16 @@
 
 #import <CFNetwork/CFNetwork.h>
 
-
+//idfa
 #import <AdSupport/AdSupport.h>
+
+//dns
+#include <arpa/inet.h>
+#include <ifaddrs.h>
+#include <resolv.h>
+#include <dns.h>
+
+//判断是否越狱
 #define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0])
 const char* jailbreak_tool_pathes[] = {
     "/Applications/Cydia.app",
@@ -43,18 +46,9 @@ const char* jailbreak_tool_pathes[] = {
 
 //亮度 CGFloat currentLight = [[UIScreen mainScreen] brightness];
 
-+(BOOL)isDevice
-{
 
-#if TARGET_IPHONE_SIMULATOR
-    return NO;
-#else
-    //不定义SIMULATOR_TEST这个宏
-    return YES;
-#endif
-}
 
-+ (DBDeviceInfo *)shareDeviceInfo {
++ (instancetype)shareDeviceInfo {
 
     static DBDeviceInfo *deviveInfo = nil;
     static dispatch_once_t onceToken;
@@ -65,8 +59,18 @@ const char* jailbreak_tool_pathes[] = {
     });
     return deviveInfo;
 }
+-(BOOL)isDevice
+{
+
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    //不定义SIMULATOR_TEST这个宏
+    return YES;
+#endif
+}
 //是否越狱
-+ (BOOL)isJailBreak
+- (BOOL)isJailBreak
 {
     for (int i=0; i<ARRAY_SIZE(jailbreak_tool_pathes); i++) {
         if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithUTF8String:jailbreak_tool_pathes[i]]]) {
@@ -104,54 +108,15 @@ const char* jailbreak_tool_pathes[] = {
 //}
 
 
-#pragma mark - 获取相机权限
-- (void)getMediaState
-{
 
-    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (status == AVAuthorizationStatusNotDetermined) {
-        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-            if (granted) {
-
-                // 用户第一次同意了访问相机权限
-
-            } else {
-
-                // 用户第一次拒绝了访问相机权限
-            }
-        }];
-    } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
-
-
-    } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
-
-
-    } else if (status == AVAuthorizationStatusRestricted) {
-     //未授权，且用户无法更新，如家长控制情况下
-    }
-    
-}
-#pragma mark - 电量
-
-//电量 如：0.8
--(NSString *)batteryLevel
-{
-    [UIDevice currentDevice].batteryMonitoringEnabled = true;
-
-    CGFloat batteryLevel = [[UIDevice currentDevice] batteryLevel];
-    [UIDevice currentDevice].batteryMonitoringEnabled = NO;
-
-    return [NSString stringWithFormat:@"%lf",batteryLevel];
-}
 
 #pragma mark - 设备型号
 
 // 获取设备型号然后手动转化为对应名称
 - (NSString *)getDeviceName
 {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+
+    NSString *deviceString = self.utsNameDic[kMachine];;
 
     if ([deviceString isEqualToString:@"iPhone3,1"])    return @"iPhone 4";
     if ([deviceString isEqualToString:@"iPhone3,2"])    return @"iPhone 4";
@@ -278,6 +243,13 @@ const char* jailbreak_tool_pathes[] = {
 //#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 - (NSString *)getIMSI{
 
+//        Carrier name: [中国移动]
+//        Mobile Country Code: [460]
+//        Mobile Network Code:[00]
+//        ISO Country Code:[cn]
+//        Allows VOIP? [YES]
+
+    
     CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];
     CTCarrier *carrier = [info subscriberCellularProvider];
     NSLog(@"carrier----%@",carrier);
