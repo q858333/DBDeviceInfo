@@ -9,9 +9,10 @@
 #import "ViewController.h"
 #import "DBTools.h"
 #import "DBDeviceInfo.h"
+#import <CoreLocation/CoreLocation.h>
 
 #import "DBPermissions.h"
-
+#import "DBKeychain.h"
 //cpu
 #include <sys/types.h>
 #include <sys/sysctl.h>
@@ -20,8 +21,14 @@
 #import "DBInternetInfo.h"
 
 #import "DBDeviceModel.h"
-@interface ViewController ()
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 
+@interface ViewController ()
+{
+    CLLocationManager *_locationManager;
+
+}
 
 @end
 
@@ -91,13 +98,25 @@
 
     return results;
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] getIMSI]);
+
+
+        //connection type
+
+        
+    
+
+    [[DBInternetInfo shareInternetInfo] getProxieInfo];
+    
+    NSLog(@"getAppIPAddress--%@",[[DBInternetInfo shareInternetInfo] getAppIPAddress:YES]);
     NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] currentTime]);
 
     DBDeviceModel *model = [[DBDeviceModel alloc]init];
     model.name=@"123";
+    [DBKeychain getUUID];
     NSLog(@"%@",[model properties_jsonDictionary]);
     //    NSDictionary *version = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 //    NSString *productVersion = [version objectForKey:@"ProductVersion"];

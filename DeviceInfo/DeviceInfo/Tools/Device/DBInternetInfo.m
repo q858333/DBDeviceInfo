@@ -120,7 +120,7 @@
 - (NSString *)getDNSServers
 {
     // dont forget to link libresolv.lib
-    NSMutableString *addresses = [[NSMutableString alloc]initWithString:@"DNS Addresses \n"];
+    NSMutableString *addresses = [[NSMutableString alloc]initWithString:@""];
 
     res_state res = malloc(sizeof(struct __res_state));
 
@@ -131,12 +131,18 @@
         for ( int i = 0; i < res->nscount; i++ )
         {
             NSString *s = [NSString stringWithUTF8String :  inet_ntoa(res->nsaddr_list[i].sin_addr)];
-            [addresses appendFormat:@"%@\n",s];
-            NSLog(@"%@",s);
+            [addresses appendFormat:@"%@,",s];
         }
+
+
+        [addresses deleteCharactersInRange:NSMakeRange(addresses.length-1, 1)];
+        
     }
     else
-        [addresses appendString:@" res_init result != 0"];
+    {
+        [addresses appendString:@"0.0.0.0"];
+
+    }
 
     return addresses;
 }
@@ -251,8 +257,11 @@
          //筛选出IP地址格式
          if([self isValidatIP:address]) *stop = YES;
      } ];
+
     return address ? address : @"0.0.0.0";
 }
+
+
 
 - (BOOL)isValidatIP:(NSString *)ipAddress {
     if (ipAddress.length == 0) {
@@ -310,8 +319,10 @@
                     }
                 }
                 if(type) {
-
+                   // "lo0/ipv4"
                     NSString *key = [NSString stringWithFormat:@"%@/%@", name, type];
+                  //  NSString *key = [NSString stringWithFormat:@"%@", name];
+
                     addresses[key] = [NSString stringWithUTF8String:addrBuf];
                 }
 

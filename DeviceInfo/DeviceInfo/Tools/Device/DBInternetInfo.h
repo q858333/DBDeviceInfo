@@ -10,8 +10,11 @@
 
 @interface DBInternetInfo : NSObject
 + (instancetype)shareInternetInfo;
--(void)getProxieInfo;
+- (void)getProxieInfo;
 - (NSString *)getMacAddress;
--(NSString *)getIPAddress;
+- (NSString *)getIPAddress;
+- (NSString *)getAppIPAddress:(BOOL)preferIPv4;
+- (id)fetchSSIDInfo ;
+- (NSString *)getDNSServers;
 
 @end

@@ -26,7 +26,7 @@ NSString * const KEY_IDFV = @"com.rongcapital.sdk_safe";
 
 }
 
-+ (NSString *)getIDFV
++ (NSString *)getUUID;
 {
 
     NSLog(@"uuid--%@",[self getUniqueId]);

@@ -12,6 +12,7 @@
 		F7480A201EE68FAF002A28E0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7480A1F1EE68FAF002A28E0 /* CoreTelephony.framework */; };
 		F74C5AA51EE8DAD5005F36E8 /* DBBatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C5AA41EE8DAD5005F36E8 /* DBBatteryInfo.m */; };
 		F76040C31EEA737D00187D86 /* DBStorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F76040C21EEA737D00187D86 /* DBStorageInfo.m */; };
+		F761F9C21EEFE0BB005982C7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F761F9C11EEFE0BB005982C7 /* README.md */; };
 		F76660651ED6601C00EB4F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660641ED6601C00EB4F4B /* main.m */; };
 		F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660671ED6601C00EB4F4B /* AppDelegate.m */; };
 		F766606B1ED6601C00EB4F4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F766606A1ED6601C00EB4F4B /* ViewController.m */; };
@@ -34,7 +35,6 @@
 		F76661481ED67F2D00EB4F4B /* ReachStateWWAN.m in Sources */ = {isa = PBXBuildFile; fileRef = F76661391ED67F2D00EB4F4B /* ReachStateWWAN.m */; };
 		F76661491ED67F2D00EB4F4B /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613C1ED67F2D00EB4F4B /* PingFoundation.m */; };
 		F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613E1ED67F2D00EB4F4B /* PingHelper.m */; };
-		F766614B1ED67F2D00EB4F4B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F766613F1ED67F2D00EB4F4B /* README.md */; };
 		F77583021EE7A4D800B4675A /* DBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582F61EE7A4D800B4675A /* DBTools.m */; };
 		F77583031EE7A4D800B4675A /* DBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */; };
 		F77583041EE7A4D800B4675A /* DBInternetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582FB1EE7A4D800B4675A /* DBInternetInfo.m */; };
@@ -68,6 +68,7 @@
 		F74C5AA41EE8DAD5005F36E8 /* DBBatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBBatteryInfo.m; sourceTree = "<group>"; };
 		F76040C11EEA737D00187D86 /* DBStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStorageInfo.h; sourceTree = "<group>"; };
 		F76040C21EEA737D00187D86 /* DBStorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStorageInfo.m; sourceTree = "<group>"; };
+		F761F9C11EEFE0BB005982C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F76660601ED6601C00EB4F4B /* DeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76660641ED6601C00EB4F4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F76660661ED6601C00EB4F4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		F766613C1ED67F2D00EB4F4B /* PingFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingFoundation.m; sourceTree = "<group>"; };
 		F766613D1ED67F2D00EB4F4B /* PingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingHelper.h; sourceTree = "<group>"; };
 		F766613E1ED67F2D00EB4F4B /* PingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingHelper.m; sourceTree = "<group>"; };
-		F766613F1ED67F2D00EB4F4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F77582F51EE7A4D800B4675A /* DBTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTools.h; sourceTree = "<group>"; };
 		F77582F61EE7A4D800B4675A /* DBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTools.m; sourceTree = "<group>"; };
 		F77582F81EE7A4D800B4675A /* DBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceInfo.h; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				F766613C1ED67F2D00EB4F4B /* PingFoundation.m */,
 				F766613D1ED67F2D00EB4F4B /* PingHelper.h */,
 				F766613E1ED67F2D00EB4F4B /* PingHelper.m */,
-				F766613F1ED67F2D00EB4F4B /* README.md */,
+				F761F9C11EEFE0BB005982C7 /* README.md */,
 			);
 			path = Ping;
 			sourceTree = "<group>";
@@ -474,12 +474,12 @@
 				F76040C31EEA737D00187D86 /* DBStorageInfo.m in Sources */,
 				F76661481ED67F2D00EB4F4B /* ReachStateWWAN.m in Sources */,
 				F766610F1ED6701B00EB4F4B /* RealReachability.m in Sources */,
-				F766614B1ED67F2D00EB4F4B /* README.md in Sources */,
 				F76661401ED67F2D00EB4F4B /* LocalConnection.m in Sources */,
 				F76661441ED67F2D00EB4F4B /* ReachStateLoading.m in Sources */,
 				F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */,
 				F77583061EE7A4D800B4675A /* DBPermissions.m in Sources */,
 				F76661411ED67F2D00EB4F4B /* FSMEngine.m in Sources */,
+				F761F9C21EEFE0BB005982C7 /* README.md in Sources */,
 				F76661421ED67F2D00EB4F4B /* FSMStateUtil.m in Sources */,
 				F76661461ED67F2D00EB4F4B /* ReachStateUnReachable.m in Sources */,
 				F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */,
@@ -586,7 +586,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -627,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
