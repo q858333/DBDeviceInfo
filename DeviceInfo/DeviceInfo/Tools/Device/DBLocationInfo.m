@@ -8,7 +8,6 @@
 
 #import "DBLocationInfo.h"
 #import <UIKit/UIKit.h>
-#import "RCConfig.h"
 @interface DBLocationInfo ()<CLLocationManagerDelegate>
 
 @property (nonatomic,strong)CLLocationManager *locationManager;
@@ -41,7 +40,7 @@
         if (state > 2 || state == 0)
         {
             //请求权限
-            if (IOS_VERSION >= 8.0)
+            if ([[UIDevice currentDevice].systemVersion floatValue]>= 8.0)
             {
                 NSDictionary *infoDic = [NSBundle mainBundle].infoDictionary;
                 //判断用户填写了哪个授权信息
@@ -131,7 +130,9 @@
     if (_startUpdatingLocation)
     {
         CLLocation *currentLocation = newLocation;
-        if (IOS_VERSION > 9.0 && IOS_VERSION < 10.0) {
+        NSString *version = [UIDevice currentDevice].systemVersion;
+
+        if ( [version floatValue]> 9.0 && [version floatValue] < 10.0) {
 
             CLLocationCoordinate2D coordinate2D = gcj2wgs(CLLocationCoordinate2DMake(newLocation.coordinate.latitude,newLocation.coordinate.longitude));
 

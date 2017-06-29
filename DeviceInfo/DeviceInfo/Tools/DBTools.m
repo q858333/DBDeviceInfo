@@ -7,13 +7,7 @@
 //
 
 #import "DBTools.h"
-#import "DBKeychain.h"
 @implementation DBTools
--(NSString *)getUUID
-{
-  NSString *uuid = [DBKeychain getUUID];
 
-    return  uuid;
-}
 
 @end

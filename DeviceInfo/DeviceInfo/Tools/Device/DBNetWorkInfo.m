@@ -7,7 +7,7 @@
 //
 
 #import "DBNetWorkInfo.h"
-#import "RCReachability.h"
+#import "Reachability.h"
 #import "DBCarrierInfo.h"
 
 #include <dns.h>
@@ -51,15 +51,15 @@
     // 1.检测wifi状态
 
     // 2.检测手机是否能上网络(WIFI\3G\2.5G)
-    RCReachability *conn = [RCReachability reachabilityForInternetConnection];
+    Reachability *conn = [Reachability reachabilityForInternetConnection];
 
 
     // 3.判断网络状态
-    if ([conn currentReachabilityStatus] == NetworkStatusReachableViaWiFi)
+    if ([conn currentReachabilityStatus] == ReachableViaWiFi)
     {
         return @"WIFI";
     }
-    else if ([conn currentReachabilityStatus] == NetworkStatusReachableViaWWAN)
+    else if ([conn currentReachabilityStatus] == ReachableViaWWAN)
     {
         return [[DBCarrierInfo shareCarrierInfo] getWWANState];
         

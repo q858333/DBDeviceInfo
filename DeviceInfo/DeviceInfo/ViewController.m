@@ -12,13 +12,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "DBPermissions.h"
-#import "DBKeychain.h"
 //cpu
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include <mach/machine.h>
 
-#import "DBInternetInfo.h"
 
 #import "DBDeviceModel.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -110,14 +108,11 @@
     NEVPNManager *vpnManager = [NEVPNManager sharedManager];
     NSLog(@"vpnManager.localizedDescription---%@",vpnManager.localizedDescription);
 
-    [[DBInternetInfo shareInternetInfo] getProxieInfo];
-    
-    NSLog(@"getAppIPAddress--%@",[[DBInternetInfo shareInternetInfo] getAppIPAddress:YES]);
+
     NSLog(@"%@",[[DBDeviceInfo shareDeviceInfo] currentTime]);
 
     DBDeviceModel *model = [[DBDeviceModel alloc]init];
     model.name=@"123";
-    [DBKeychain getUUID];
     NSLog(@"%@",[model properties_jsonDictionary]);
     //    NSDictionary *version = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
 //    NSString *productVersion = [version objectForKey:@"ProductVersion"];
@@ -141,9 +136,7 @@
 
 
 
-    [[DBPermissions sharePermissions] getAddressBookState:^(BOOL isGranted) {
-        NSLog(@"%d",isGranted);
-    }];
+  
 
   //  NSLog(@"%d",[DBDeviceInfo isDevice]);
     // Do any additional setup after loading the view, typically from a nib.

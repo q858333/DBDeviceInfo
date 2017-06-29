@@ -19,6 +19,7 @@
 		F74EA70A1F04E24900759365 /* DBProjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F74EA7041F04E24900759365 /* DBProjectInfo.m */; };
 		F74EA70D1F04E26500759365 /* DBPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = F74EA70C1F04E26500759365 /* DBPermissions.m */; };
 		F74EA7101F04E2C800759365 /* DBDeviceCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = F74EA70F1F04E2C800759365 /* DBDeviceCheck.m */; };
+		F74EA7141F04E4FA00759365 /* RCPhoneInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74EA7131F04E4FA00759365 /* RCPhoneInfoModel.m */; };
 		F76040C31EEA737D00187D86 /* DBStorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F76040C21EEA737D00187D86 /* DBStorageInfo.m */; };
 		F761F9C21EEFE0BB005982C7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F761F9C11EEFE0BB005982C7 /* README.md */; };
 		F76660651ED6601C00EB4F4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76660641ED6601C00EB4F4B /* main.m */; };
@@ -45,7 +46,6 @@
 		F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F766613E1ED67F2D00EB4F4B /* PingHelper.m */; };
 		F77583021EE7A4D800B4675A /* DBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582F61EE7A4D800B4675A /* DBTools.m */; };
 		F77583031EE7A4D800B4675A /* DBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */; };
-		F77583051EE7A4D800B4675A /* DBKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = F77582FE1EE7A4D800B4675A /* DBKeychain.m */; };
 		F775830F1EE7CCE100B4675A /* DBDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F775830E1EE7CCE100B4675A /* DBDeviceModel.m */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +89,9 @@
 		F74EA70C1F04E26500759365 /* DBPermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPermissions.m; sourceTree = "<group>"; };
 		F74EA70E1F04E2C800759365 /* DBDeviceCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceCheck.h; sourceTree = "<group>"; };
 		F74EA70F1F04E2C800759365 /* DBDeviceCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceCheck.m; sourceTree = "<group>"; };
+		F74EA7111F04E49E00759365 /* RCConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConfig.h; sourceTree = "<group>"; };
+		F74EA7121F04E4FA00759365 /* RCPhoneInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPhoneInfoModel.h; sourceTree = "<group>"; };
+		F74EA7131F04E4FA00759365 /* RCPhoneInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPhoneInfoModel.m; sourceTree = "<group>"; };
 		F76040C11EEA737D00187D86 /* DBStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStorageInfo.h; sourceTree = "<group>"; };
 		F76040C21EEA737D00187D86 /* DBStorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStorageInfo.m; sourceTree = "<group>"; };
 		F761F9C11EEFE0BB005982C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -140,8 +143,6 @@
 		F77582F61EE7A4D800B4675A /* DBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTools.m; sourceTree = "<group>"; };
 		F77582F81EE7A4D800B4675A /* DBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceInfo.h; sourceTree = "<group>"; };
 		F77582F91EE7A4D800B4675A /* DBDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceInfo.m; sourceTree = "<group>"; };
-		F77582FD1EE7A4D800B4675A /* DBKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBKeychain.h; sourceTree = "<group>"; };
-		F77582FE1EE7A4D800B4675A /* DBKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBKeychain.m; sourceTree = "<group>"; };
 		F775830D1EE7CCE100B4675A /* DBDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDeviceModel.h; sourceTree = "<group>"; };
 		F775830E1EE7CCE100B4675A /* DBDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeviceModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +206,7 @@
 				F76661111ED6702100EB4F4B /* Reachability.m */,
 				F766610D1ED6701B00EB4F4B /* RealReachability.h */,
 				F766610E1ED6701B00EB4F4B /* RealReachability.m */,
+				F74EA7111F04E49E00759365 /* RCConfig.h */,
 				F76661251ED67F2D00EB4F4B /* Connection */,
 				F76661281ED67F2D00EB4F4B /* FSM */,
 				F766613A1ED67F2D00EB4F4B /* Ping */,
@@ -308,6 +310,8 @@
 		F77582F41EE7A4D800B4675A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F74EA7121F04E4FA00759365 /* RCPhoneInfoModel.h */,
+				F74EA7131F04E4FA00759365 /* RCPhoneInfoModel.m */,
 				F77582F51EE7A4D800B4675A /* DBTools.h */,
 				F77582F61EE7A4D800B4675A /* DBTools.m */,
 				F77582F71EE7A4D800B4675A /* Device */,
@@ -347,8 +351,6 @@
 		F77582FC1EE7A4D800B4675A /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
-				F77582FD1EE7A4D800B4675A /* DBKeychain.h */,
-				F77582FE1EE7A4D800B4675A /* DBKeychain.m */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -517,6 +519,7 @@
 				F76661441ED67F2D00EB4F4B /* ReachStateLoading.m in Sources */,
 				F74EA7081F04E24900759365 /* DBLocationInfo.m in Sources */,
 				F74EA7061F04E24900759365 /* DBIDentifierInfo.m in Sources */,
+				F74EA7141F04E4FA00759365 /* RCPhoneInfoModel.m in Sources */,
 				F74EA7071F04E24900759365 /* DBJailBreak.m in Sources */,
 				F74EA7101F04E2C800759365 /* DBDeviceCheck.m in Sources */,
 				F76660681ED6601C00EB4F4B /* AppDelegate.m in Sources */,
@@ -527,7 +530,6 @@
 				F76661461ED67F2D00EB4F4B /* ReachStateUnReachable.m in Sources */,
 				F766614A1ED67F2D00EB4F4B /* PingHelper.m in Sources */,
 				F76660651ED6601C00EB4F4B /* main.m in Sources */,
-				F77583051EE7A4D800B4675A /* DBKeychain.m in Sources */,
 				F76661431ED67F2D00EB4F4B /* ReachState.m in Sources */,
 				F775830F1EE7CCE100B4675A /* DBDeviceModel.m in Sources */,
 				F76661121ED6702100EB4F4B /* Reachability.m in Sources */,
