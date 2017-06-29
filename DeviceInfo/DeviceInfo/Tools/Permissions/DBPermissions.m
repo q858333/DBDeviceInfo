@@ -10,7 +10,9 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import <AVFoundation/AVMediaFormat.h>
 #import <Photos/Photos.h>
-#define IOS_VERSION         [[UIDevice currentDevice].systemVersion floatValue]
+#import "DBLocationInfo.h"
+#import "RCConfig.h"
+
 
 @implementation DBPermissions
 + (DBPermissions *)sharePermissions
@@ -26,79 +28,41 @@
 }
 
 #pragma mark - 获取相机权限
-- (BOOL)getMediaState {
 
-    AVAuthorizationStatus authStatus =  [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (authStatus == AVAuthorizationStatusRestricted || authStatus ==AVAuthorizationStatusDenied) {
+- (void)getMediaState:(PermissionStateBlock)block
+{
 
-        return NO;
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (status == AVAuthorizationStatusNotDetermined) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+           // block(granted);
+             block(DBPermissionsStateUnknown);
 
-    }else {
+            if (granted) {
 
-        return YES;
-    }
+                // 用户第一次同意了访问相机权限
 
-}
-//#pragma mark - 获取相机权限
-//- (void)getMediaState
-//{
-//
-//    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-//    if (status == AVAuthorizationStatusNotDetermined) {
-//        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-//            if (granted) {
-//
-//                // 用户第一次同意了访问相机权限
-//
-//            } else {
-//
-//                // 用户第一次拒绝了访问相机权限
-//            }
-//        }];
-//    } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
-//
-//
-//    } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
-//
-//
-//    } else if (status == AVAuthorizationStatusRestricted) {
-//        //未授权，且用户无法更新，如家长控制情况下
-//    }
-//    
-//}
+            } else {
 
-- (BOOL)getAlbumState {
-
-    PHAuthorizationStatus authStatus = [PHPhotoLibrary authorizationStatus];
-    if (authStatus == PHAuthorizationStatusRestricted || authStatus ==PHAuthorizationStatusDenied) {
-
-        return NO;
-
-    }else {
-
-        return YES;
-    }
-    
-}
-- (void)takePhoto {
+                // 用户第一次拒绝了访问相机权限
+            }
+        }];
+    } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+        block(DBPermissionsStateOpen);
 
 
-    BOOL state =  [self getMediaState];
+    } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
 
-    if (state) {
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = NO;//设置不可编辑
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        //        [self presentViewController:picker animated:YES completion:nil];//进入照相界面
-      //  [self presentViewController:picker animated:YES completion:nil];
+        block(DBPermissionsStateClose);
+    } else if (status == AVAuthorizationStatusRestricted) {
+        block(DBPermissionsStateClose);
 
-    }else {
-        //[[XRAppHelp shareAppHelp] showAlertViewWithSettingMsg:@"相机"];
+        //未授权，且用户无法更新，如家长控制情况下
     }
     
 }
 #pragma mark - 定位
+
 
 -(void)getLocation
 {
@@ -114,173 +78,123 @@
     [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
 
 
-
-    UIDevice *device = [UIDevice currentDevice];
-
     //请求权限
-    if ([device.systemVersion floatValue] >= 8)
+    if (IOS_VERSION >= 8)
     {
-        //由于IOS8中定位的授权机制改变 需要进行手动授权
-        //获取授权认证
+
         // [_locationManager requestAlwaysAuthorization];//只在前台开启定位
         [_locationManager requestWhenInUseAuthorization];//在后台也可定位
+
     }
     [_locationManager startUpdatingLocation];
-    
+
 }
 
-- (BOOL)getLocationState
+- (DBPermissionsState )getLocationState
 {
 
+    DBLocationInfo *locationInfo = [DBLocationInfo currentLocation];
     //定位服务是否可用
-    BOOL enable=[CLLocationManager locationServicesEnabled];
+    BOOL enable = [locationInfo getLocationEnabled];
     //是否具有定位权限
-    int status=[CLLocationManager authorizationStatus];
+    int status=[locationInfo getLocationState];
 
 
     if (enable && status>2)
     {
 
-        return YES;
+        return DBPermissionsStateOpen;
+       // block(DBPermissionsStateOpen);
+
     }else
     {
+
         if(status == 0)
         {
-            [self getLocation];
+
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self getLocation];
+//
+//            });
+            return DBPermissionsStateUnknown;
+
+//            block(DBPermissionsStateUnknown);
+        }else
+        {
+            return DBPermissionsStateClose;
+
+          //  block(DBPermissionsStateClose);
         }
-        
+
         
     }
     
-    return NO;
+
+}
+
+//定位回调里执行重启定位和关闭定位
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    [manager stopUpdatingLocation];
+}
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+
+
+    _locationManager = nil;
     
 }
-#pragma mark - CLLocationManageDelegate
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+//- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+//    switch (status) {
+//        case kCLAuthorizationStatusAuthorizedAlways:
+//            NSLog(@"Always Authorized");
+//            break;
+//        case kCLAuthorizationStatusAuthorizedWhenInUse:
+//            NSLog(@"AuthorizedWhenInUse");
+//            break;
+//        case kCLAuthorizationStatusDenied:
+//        {
+//            if ([CLLocationManager locationServicesEnabled]) {
+//                NSLog(@"定位服务开启，被拒绝");
+//            } else {
+//                NSLog(@"定位服务关闭，不可用");
+//            }
+//        }
+//            break;
+//        case kCLAuthorizationStatusNotDetermined:
+//            NSLog(@"not Determined");
+//            break;
+//        case kCLAuthorizationStatusRestricted:
+//            NSLog(@"Restricted");
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//}
 
+#pragma  mark - 相册权限
+//相册
+- (BOOL)getAlbumState {
 
-        CLLocation *currentLocation = newLocation;
-        CLGeocoder *geoCoder = [CLGeocoder new];
-        if (IOS_VERSION > 9.0 && IOS_VERSION < 10.0) {
+    PHAuthorizationStatus authStatus = [PHPhotoLibrary authorizationStatus];
+    if (authStatus == PHAuthorizationStatusRestricted || authStatus ==PHAuthorizationStatusDenied) {
 
-            CLLocationCoordinate2D coordinate2D = gcj2wgs(CLLocationCoordinate2DMake(newLocation.coordinate.latitude,newLocation.coordinate.longitude));
+        return NO;
 
-            CLLocation *wgsLocation = [[CLLocation alloc]initWithLatitude:coordinate2D.latitude longitude:coordinate2D.longitude];
+    }else {
 
-            currentLocation = wgsLocation;
-
-
-        }
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-
-
-        [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error){
-            if(error == nil && [placemarks count]>0)
-            {
-                CLPlacemark *placemark=[placemarks firstObject];
-
-                // NSString * addName = placemark.addressDictionary[@"Name"];//详细
-
-                NSString *country = placemark.addressDictionary[@"Country"];//国家
-                NSString *province = placemark.addressDictionary[@"State"];//省
-                NSString *city = placemark.addressDictionary[@"City"];//城市
-                // NSString *district = placemark.addressDictionary[@"SubLocality"];//小城市
-                // NSString *street = placemark.addressDictionary[@"Street"];//街道
-
-
-                NSMutableDictionary *addressDic = [[NSMutableDictionary alloc]init];
-                // [addressDic setObject:addName forKey:@"Address"];
-                [addressDic setObject:country ? country:@"" forKey:@"Country"];
-                [addressDic setObject:province ? province:@"" forKey:@"Province"];
-                [addressDic setObject:city ? city:@"" forKey:@"City"];
-                //  [addressDic setObject:district forKey:@"District"];
-                //   [addressDic setObject:street forKey:@"Street"];
-                NSString *lat = [NSString stringWithFormat:@"%lld",currentLocation.coordinate.latitude];
-                NSString *lon = [NSString stringWithFormat:@"%lld",currentLocation.coordinate.longitude];
-
-                [addressDic setObject:lat ? lat : @"0" forKey:@"lat"];
-                [addressDic setObject:lon ? lon : @"0" forKey:@"lon"];
-            }
-
-            }];
-                //这里是将NSString转化为json类型,相信很多都会用到
-                //   NSData *jsonData = [NSJSONSerialization dataWithJSONObject:addressDic options:NSJSONWritingPrettyPrinted error:nil];
-                //  NSString *jsonString  = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-
-        [_locationManager stopUpdatingLocation];
-
-
-
-
-
-}
-
-
-
-#pragma mark - GCJ->WGS  火星坐标转地球坐标
-
-const double a = 6378245.0;
-const double ee = 0.00669342162296594323;
-// 地球坐标系 (WGS-84) <- 火星坐标系 (GCJ-02)
-
-
-CLLocationCoordinate2D gcj2wgs(CLLocationCoordinate2D coordinate) {
-    if (outOfChina(coordinate)) {
-        return coordinate;
-    }
-    CLLocationCoordinate2D c2 = wgs2gcj(coordinate);
-    return CLLocationCoordinate2DMake(2 * coordinate.latitude - c2.latitude, 2 * coordinate.longitude - c2.longitude);
-}
-
-BOOL outOfChina(CLLocationCoordinate2D coordinate)
-{
-    if (coordinate.longitude < 72.004 || coordinate.longitude > 137.8347)
         return YES;
-    if (coordinate.latitude < 0.8293 || coordinate.latitude > 55.8271)
-        return YES;
-    return NO;
-}
-CLLocationCoordinate2D wgs2gcj(CLLocationCoordinate2D coordinate) {
-    if (outOfChina(coordinate)) {
-        return coordinate;
     }
-    double wgLat = coordinate.latitude;
-    double wgLon = coordinate.longitude;
-    double dLat = transformLat(wgLon - 105.0, wgLat - 35.0);
-    double dLon = transformLon(wgLon - 105.0, wgLat - 35.0);
-    double radLat = wgLat / 180.0 * M_PI;
-    double magic = sin(radLat);
-    magic = 1 - ee * magic * magic;
-    double sqrtMagic = sqrt(magic);
-    dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * M_PI);
-    dLon = (dLon * 180.0) / (a / sqrtMagic * cos(radLat) * M_PI);
-    return CLLocationCoordinate2DMake(wgLat + dLat, wgLon + dLon);
-}
-
-
-double transformLat(double x, double y)
-{
-    double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * sqrt(abs(x));
-    ret += (20.0 * sin(6.0 * x * M_PI) + 20.0 * sin(2.0 * x * M_PI)) * 2.0 / 3.0;
-    ret += (20.0 * sin(y * M_PI) + 40.0 * sin(y / 3.0 * M_PI)) * 2.0 / 3.0;
-    ret += (160.0 * sin(y / 12.0 * M_PI) + 320 * sin(y * M_PI / 30.0)) * 2.0 / 3.0;
-    return ret;
-}
-
-static double transformLon(double x, double y)
-{
-    double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x));
-    ret += (20.0 * sin(6.0 * x * M_PI) + 20.0 * sin(2.0 * x * M_PI)) * 2.0 / 3.0;
-    ret += (20.0 * sin(x * M_PI) + 40.0 * sin(x / 3.0 * M_PI)) * 2.0 / 3.0;
-    ret += (150.0 * sin(x / 12.0 * M_PI) + 300.0 * sin(x / 30.0 * M_PI)) * 2.0 / 3.0;
-    return ret;
+    
 }
 
 
 
 
 #pragma mark - 通讯录
-- (void )getAddressBookState:(PermissionState)block;
+- (void )getAddressBookState:(PermissionStateBlock)block;
 {
     // 1.获取授权状态
     ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
@@ -291,14 +205,15 @@ static double transformLon(double x, double y)
 
 
             ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error){
+                block(DBPermissionsStateUnknown);
+
                 if(granted){
 
                     //第一次提示 选择yes
-                    [self getAddressBook];
+                  //  [self getAddressBook];
                 }else{
 
                 }
-                block(granted);
 
 
             });
@@ -311,17 +226,19 @@ static double transformLon(double x, double y)
 
 
     }else if (status == kABAuthorizationStatusAuthorized){
-        [self getAddressBook];
-        block(YES);
+     //   [self getAddressBook];
+        block(DBPermissionsStateOpen);
 
         // [self loadPerson];
     }else {
-        block(NO);
+        block(DBPermissionsStateClose);
         // 弹窗提示去获取权限
     }
     
 
 }
+
+
 - (NSString *)getAddressBook
 {
 

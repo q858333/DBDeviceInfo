@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-typedef void(^PermissionState)(BOOL isGranted);
+typedef enum : NSUInteger {
+    DBPermissionsStateClose = 0,
+    DBPermissionsStateOpen = 1,
+    DBPermissionsStateUnknown,
+} DBPermissionsState;
+
+typedef void(^PermissionStateBlock)(DBPermissionsState state);
 
 @interface DBPermissions : NSObject
 {
@@ -17,7 +23,19 @@ typedef void(^PermissionState)(BOOL isGranted);
 
 }
 + (DBPermissions *)sharePermissions;
-- (void )getAddressBookState:(PermissionState)block;
+
+/**
+ *   通讯录状态
+ */
+- (void )getAddressBookState:(PermissionStateBlock)block;
+/**
+ *   相机状态
+ */
+- (void )getMediaState:(PermissionStateBlock)block;
+/**
+ *   定位状态
+ */
+- (DBPermissionsState )getLocationState;
 
 
 @end

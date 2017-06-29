@@ -63,19 +63,7 @@
 
 }
 #pragma mark - private method
-//可用内存
--(long long)db_getAvailableMemorySize
-{
-    vm_statistics_data_t vmStats;
-    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
-    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
-    if (kernReturn != KERN_SUCCESS)
-    {
-        return NSNotFound;
-    }
 
-    return ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));
-}
 //总磁盘大小
 - (long long)db_getDiskTotalSize {
     struct statfs buf;
@@ -95,7 +83,19 @@
     }
     return freeSpace;
 }
+//可用内存
+-(long long)db_getAvailableMemorySize
+{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+    if (kernReturn != KERN_SUCCESS)
+    {
+        return NSNotFound;
+    }
 
+    return ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));
+}
 //内存大小转化
 - (NSString *)p_getSizeFromString:(long long)size {
     if (size>1024*1024*1024) {

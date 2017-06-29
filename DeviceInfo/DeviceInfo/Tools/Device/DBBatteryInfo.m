@@ -15,6 +15,7 @@
 @end
 
 @implementation DBBatteryInfo
+
 + (instancetype)shareBatteryInfo {
 
     static DBBatteryInfo *internet = nil;
@@ -36,28 +37,32 @@
     CGFloat batteryLevel = [self.device batteryLevel];
     self.device.batteryMonitoringEnabled = NO;
 
-    return [NSString stringWithFormat:@"%lf",batteryLevel];
+
+    return [NSString stringWithFormat:@"%0.0lf",batteryLevel*100];
 }
 #pragma mark - 状态
 
 - (NSString *)batteryState {
-    switch (self.device.batteryState) {
-        case UIDeviceBatteryStateFull:
-            return @"充满";
-            break;
-        case UIDeviceBatteryStateUnknown:
-            return @"未知";
-            break;
-        case UIDeviceBatteryStateCharging:
-            return @"正在充电";
-            break;
-        case UIDeviceBatteryStateUnplugged:
-            return @"未充电";
-            break;
-        default:
-            return @"未知";
-            break;
-    }
+
+    return [NSString stringWithFormat:@"%d",self.device.batteryState];
+//    switch (self.device.batteryState) {
+//
+//        case UIDeviceBatteryStateFull:
+//            return @"充满";
+//            break;
+//        case UIDeviceBatteryStateUnknown:
+//            return @"未知";
+//            break;
+//        case UIDeviceBatteryStateCharging:
+//            return @"正在充电";
+//            break;
+//        case UIDeviceBatteryStateUnplugged:
+//            return @"未充电";
+//            break;
+//        default:
+//            return @"未知";
+//            break;
+//    }
 }
 
 #pragma mark -

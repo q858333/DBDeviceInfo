@@ -23,7 +23,7 @@
 #import "DBDeviceModel.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
-
+#import <NetworkExtension/NEVPNManager.h>
 @interface ViewController ()
 {
     CLLocationManager *_locationManager;
@@ -103,11 +103,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
+   // [[DBPermissions sharePermissions] getMediaState];
         //connection type
 
         
-    
+    NEVPNManager *vpnManager = [NEVPNManager sharedManager];
+    NSLog(@"vpnManager.localizedDescription---%@",vpnManager.localizedDescription);
 
     [[DBInternetInfo shareInternetInfo] getProxieInfo];
     
