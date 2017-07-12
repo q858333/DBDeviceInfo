@@ -10,14 +10,49 @@
 #import <CoreMotion/CoreMotion.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation DBDeviceCheck
 
 
 
+//检查声音支持 AVFoundation.framework <AVFoundation/AVFoundation.h>
+- (BOOL)isAudioAvailable
+{
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    BOOL audioAvailable = audioSession.inputAvailable;
+    return audioAvailable;
+
+}
+
+
+//检查指南针 CoreLocation.framework
+- (BOOL)isCompassAvailable
+{
+    return [CLLocationManager headingAvailable];
+
+}
+
+
+//检查前后摄像头
+- (BOOL)isRearCameraAvailable
+{
+    BOOL cameraAvailable = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];//前
+
+    return cameraAvailable;
+}
+
+
+- (BOOL)isFrontCameraAvailable
+{
+    BOOL frontCameraAvailable = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];//后
+    return frontCameraAvailable;
+
+}
 
 //检查录像支持 MobileCoreServices.framework <MobileCoreServices/MobileCoreServices.h>
-- (BOOL)isvideoCameraAvailable
+- (BOOL)isVideoCameraAvailable
 {
     //简单检查所有的可用的媒体资源类型，然后检查返回的数组，如果其中包含了kUTTypeMovie的NSString类型对象，就证明摄像头支持录像
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
