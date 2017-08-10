@@ -9,6 +9,11 @@
 #import "DBJailBreak.h"
 #import <UIkit/UIKit.h>
 #include <stdlib.h>
+#include <string.h>
+#import <mach-o/loader.h>
+#import <mach-o/dyld.h>
+#import <mach-o/arch.h>
+#import <objc/runtime.h>
 @implementation DBJailBreak
 
 //这里用多个判断方式判断，确保判断更加准确
@@ -66,5 +71,117 @@
     }];
     return boo;
 }
+
+//未安装越狱防护的越狱机，安装插件后，会安装在/Library/MobileSubstrate目录下，
+
+//在安装ZNT插件后，检测时会将所有越狱文件伪装成
+
+bool printDYLD(){
+
+    //Get count of all currently loaded DYLD
+    uint32_t count = _dyld_image_count();
+    //安装NZT插件后会把原有的越狱文件名称统一修改成在/usr/lib/目录下的libSystem.B.dylib
+    NSString *jtpath=@"/usr/lib/libSystem.B.dylib";
+
+    uint32_t countyueyu=0;
+
+    for(uint32_t i = 0; i < count; i++)
+    {
+        //Name of image (includes full path)
+        const char *dyld = _dyld_get_image_name(i);
+
+        //Get name of file
+        int slength = strlen(dyld);
+
+        int j;
+        for(j = slength - 1; j>= 0; --j)
+            if(dyld[j] == '/') break;
+
+        NSString *name = [[NSString alloc]initWithUTF8String:_dyld_get_image_name(i)];
+        if([name compare:jtpath] == NSOrderedSame)
+        {
+            countyueyu++;
+        }
+        if([name containsString:@"/Library/MobileSubstrate"])
+        {
+            return YES;
+        }
+    }
+    if( countyueyu > 2 )
+        return YES;
+    return NO;
+    printf("\n");
+}
+
+//-(BOOL)getYueYu
+//{
+//    NSMutableArray *proState = [NSMutableArray array];
+//
+//    //获取用户手机已安装app
+//    Class LSApplicationWorkspace_class =objc_getClass("LSApplicationWorkspace");
+//
+//    SEL mydefault =NSSelectorFromString(@"defaultWorkspace");
+//
+//    NSObject* workspace =[LSApplicationWorkspace_class performSelector:mydefault];
+//
+//    SEL myappinfoinstall =NSSelectorFromString(@"allApplications");
+//
+//    NSString *appinfostring= [NSString stringWithFormat:@"%@",[workspace performSelector:myappinfoinstall]];
+//
+//    NSLog(@"----foo89789-----%@",appinfostring);
+//
+//    appinfostring =[appinfostring stringByReplacingOccurrencesOfString:@"<" withString:@""];
+//    appinfostring =[appinfostring stringByReplacingOccurrencesOfString:@">" withString:@""];
+//    appinfostring =[appinfostring stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+//    appinfostring =[appinfostring stringByReplacingOccurrencesOfString:@"(" withString:@""];
+//    appinfostring =[appinfostring stringByReplacingOccurrencesOfString:@")" withString:@""];
+//    NSLog(@"----foo0000-----:%@",appinfostring);
+//    NSArray* foo = [appinfostring componentsSeparatedByString:@","];
+//    NSLog(@"----foo-----");
+//    BOOL isyueyu          = NO;
+//    NSString *cydia       = @"com.saurik.Cydia";
+//    NSString *chudong     = @"com.touchsprite.ios";
+//    NSString *nzt         = @"NZT";
+//    for (NSString *dic in foo)
+//    {
+//        NSLog(@"----foo222-----");
+//        NSString* childstring = [NSString stringWithFormat:@"%@",dic ];
+//        // NSLog(@"----foo222-----%@",childstring);
+//        childstring  = [childstring stringByReplacingOccurrencesOfString:@" " withString:@"&"];
+//        //childstring =[childstring stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+//        NSLog(@"----foo222-----%@",childstring);
+//        NSArray* foo2 = [childstring componentsSeparatedByString:@"&"];
+//        NSString *appname;
+//        @try {
+//            appname = [NSString stringWithFormat:@"%@",[foo2 objectAtIndex: 6]];
+//        }
+//        @catch (NSException *exception) {
+//
+//            appname = [NSString stringWithFormat:@"%@",[foo2 objectAtIndex: 5]];
+//        }
+//        if([appname compare:cydia] == NSOrderedSame)
+//        {
+//            isyueyu = YES;
+//            break;
+//        }
+//        if([appname compare:chudong] == NSOrderedSame)
+//        {
+//            isyueyu = YES;
+//            break;
+//        }
+//        if([appname compare:nzt]==NSOrderedSame)
+//        {
+//            isyueyu = YES;
+//            break;
+//        }
+//
+//        // NSLog(@"----foo222yyyy-----%@",appname);
+//        NSString *msg = [NSString stringWithFormat:@"{\"name\":\"%@\",\"index\":\"%@\"}",appname, @""];
+//        [proState addObject:msg];
+//        NSLog(@"----foo3333-----");
+//    } 
+//    return isyueyu;    
+//}
+
 
 @end

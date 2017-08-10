@@ -157,7 +157,7 @@
 {
 
 
-    _finallyBlock=[block copy];
+    _finallyBlock=block ;
 
     self.currenttime = [[DBDeviceInfo shareDeviceInfo] currentTime];//时间戳 毫秒
 
