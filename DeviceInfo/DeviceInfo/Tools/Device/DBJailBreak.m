@@ -14,6 +14,7 @@
 #import <mach-o/dyld.h>
 #import <mach-o/arch.h>
 #import <objc/runtime.h>
+#import <dlfcn.h>
 @implementation DBJailBreak
 
 //这里用多个判断方式判断，确保判断更加准确
@@ -184,4 +185,111 @@ bool printDYLD(){
 //}
 
 
+
+//static void logMethodInfo(const char *className, const char *sel)
+//{
+//    Dl_info info;
+//    IMP imp = class_getMethodImplementation(objc_getClass(className),sel_registerName(sel));
+//    if(dladdr(imp,&info)) {
+//        NSLog(@"method %s %s:", className, sel);
+//        NSLog(@"dli_fname:%s",info.dli_fname);
+//        NSLog(@"dli_sname:%s",info.dli_sname);
+//        NSLog(@"dli_fbase:%p",info.dli_fbase);
+//        NSLog(@"dli_saddr:%p",info.dli_saddr);
+//    } else {
+//        NSLog(@"error: can't find that symbol.");
+//    }
+//}
+//
+//static inline BOOL validate_methods(const char *cls,const char *fname) __attribute__ ((always_inline));
+//
+//BOOL validate_methods(const char *cls,const char *fname){
+//    Class aClass = objc_getClass(cls);
+//    Method *methods;
+//    unsigned int nMethods;
+//    Dl_info info;
+//    IMP imp;
+//    char buf[128];
+//    Method m;
+//
+//    if(!aClass)
+//        return NO;
+//    methods = class_copyMethodList(aClass, &nMethods);
+//    while (nMethods--) {
+//        m = methods[nMethods];
+//        printf("validating [%s %s]\n",(const char *)class_getName(aClass),(const char *)method_getName(m));
+//
+//        imp = method_getImplementation(m);
+//        //imp = class_getMethodImplementation(aClass, sel_registerName("allObjects"));
+//        if(!imp){
+//            printf("error:method_getImplementation(%s) failed\n",(const char *)method_getName(m));
+//            free(methods);
+//            return NO;
+//        }
+//
+//        if(!dladdr(imp, &info)){
+//            printf("error:dladdr() failed for %s\n",(const char *)method_getName(m));
+//            free(methods);
+//            return NO;
+//        }
+//
+//        /*Validate image path*/
+//        if(strcmp(info.dli_fname, fname))
+//            goto FAIL;
+//
+//        if (info.dli_sname != NULL && strcmp(info.dli_sname, "<redacted>") != 0) {
+//            /*Validate class name in symbol*/
+//            snprintf(buf, sizeof(buf), "[%s ",(const char *) class_getName(aClass));
+//            if(strncmp(info.dli_sname + 1, buf, strlen(buf))){
+//                snprintf(buf, sizeof(buf),"[%s(",(const char *)class_getName(aClass));
+//                if(strncmp(info.dli_sname + 1, buf, strlen(buf)))
+//                    goto FAIL;
+//            }
+//
+//            /*Validate selector in symbol*/
+//            snprintf(buf, sizeof(buf), " %s]",(const char*)method_getName(m));
+//            if(strncmp(info.dli_sname + (strlen(info.dli_sname) - strlen(buf)), buf, strlen(buf))){
+//                goto FAIL;
+//            }
+//        }else{
+//            printf("<redacted>  \n");
+//        }
+//
+//    }
+//
+//    return YES;
+//
+//FAIL:
+//    printf("method %s failed integrity test:\n",
+//           (const char *)method_getName(m));
+//    printf("    dli_fname:%s\n",info.dli_fname);
+//    printf("    dli_sname:%s\n",info.dli_sname);
+//    printf("    dli_fbase:%p\n",info.dli_fbase);
+//    printf("    dli_saddr:%p\n",info.dli_saddr);
+//    free(methods);
+//    return NO;
+//}
+//
+//
+//-(void)exam
+//{
+//    const char * className = class_getName([CLLocationManager class]);
+//
+//
+//
+//
+//    unsigned int count;
+//    Method *methods = class_copyMethodList([CLLocationManager class], &count);
+//    for (int i = 0; i < count; i++)
+//    {
+//        Method method = methods[i];
+//        SEL selector = method_getName(method);
+//        NSString *name = NSStringFromSelector(selector);
+//        //        if ([name hasPrefix:@"test"])
+//        NSLog(@"方法 名字 ==== %@",name);
+//
+//
+//        logMethodInfo(className, [name cStringUsingEncoding:NSUTF8StringEncoding]);
+//    }
+//}
 @end
